@@ -1,0 +1,794 @@
+﻿    /* Landing.css */
+    body
+{
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: #FFFFFF;
+}
+    H1 {margin-bottom:-10px;padding:8px 0px 5px 20px;font-size:13px;font-family: Arial, Helvetica, sans-serif;color:#989DA5;}/*#999999;#003399;*/
+    p {font-size:16px;line-height: 20px;width:600px;}
+    #bspcontainer{
+	/*xborder: 2px groove #CCCCCC;*/
+	width: 860px;
+    margin:0 auto;
+    background:url(http://www.maxgoldhouse.com/images/MGHpageshadow.png) repeat-y;
+	background-color: #FFFFFF;
+	position: relative;
+	overflow: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+    /*#bspcontainer a{color:#000000;}
+    #bspcontainer p {xfont-size:14px;xfont-family:Helvetica;}*/
+    #main{xposition:relative;}
+	#rside{position:relative;float:right;width:140px;padding-right:65px;margin-top:-340px;}
+	.ui-widget li{line-height:14px;list-style-type:none;margin-left:-20px;}
+	.ui-widget li a{text-decoration:none;}
+	.ui-widget li a:link {text-decoration:none;color:#666666;}/*Arial ,Helvetica, Garuda, sans-serif */
+    /*.ui-widget li a:visited {text-decoration:none;color:#666666;}*/
+    .ui-widget li a:hover {text-decoration:none;color:#E1B546;}
+    .ui-widget li a:active  {text-decoration:none;color:#000000;}
+    .ui-tabs-panel{padding:10px;}
+	#bsp_search{margin-top:36px;}
+    #innercontainer{width: 640px;position: relative;}
+    #bsp_header{width:660px;padding:5px 0px 0px 0px;margin:0px 0px 0px 0px;}
+    #bsp_header table{width:620px;padding:0px}
+    #bsp_header img{border:none;}
+    #bsp_header H1 {padding-left:0px;padding-bottom:-10px;padding-top:-5px;font-weight:normal;font-size:13px;Line-height:16px;font-family: Arial ,Helvetica, sans-serif;color:#989DA5;}
+    #MGHnav{position:relative;width:650px;height:30px;text-align:center;background:url('http://www.maxgoldhouse.com/images/menshad.jpg') repeat-x;color:#E1B546;}
+    /*#MGHnav{background-color:#333;margin-left:25px;font-family: Arial, Helvetica, Garuda, Sans-Serif;}*/
+    #MGHnav a:link {font-weight:bold;text-decoration:none;color:#31088C;font-size:13px;}/*#E1B546;*/
+    /*#MGHnav a:visited {font-weight:bold;text-decoration:none;color:#31088C;}*/
+    #MGHnav a:hover {font-weight:bold;text-decoration:none;color:#989DA5;}
+    #MGHnav a:active  {font-weight:bold;text-decoration:none;color:#31088C;}
+    .Bennlogo{width:659px;font-family:Courier New, Courier, monospace; font-size: 42px;text-align: left;font-weight:900;padding: 0px 0px 0px 10px;margin:0px 0px 0px 0px;color: #ffffff;}
+    .red{font-weight:normal;color:rgb(255,0,0);}
+    .strike{text-decoration: line-through;}
+    .logotag{font-family: Arial, Helvetica, sans-serif;font-size: 12px;letter-spacing: 2px;font-weight: bold; padding: 0px 0px 0px 15px;color: #ffffff}
+    #specials{font-size:60px;text-align:center;color:#E1B546;font-weight:bold;}
+    #welcome {width:630px;padding:5px 4px 4px 18px;font-family: "Lucida Grande",Geneva,Arial,Verdana,sans-serif;position:relative;float:left;}/**/
+    #welcome H1 {width:600px;font-size:16px;font-family: Arial, Helvetica, sans-serif;padding:0px 0px 0px 0px;color:#31088C;}
+    #welcome H2 {font-family: Verdana,Arial, Helvetica, sans-serif;font-size:16px;}
+    #welcome H3 {font-size:18px;text-align: center;}
+    #welcome p {font-size:14px;}
+    #welcome li{list-style-position: outside;list-style-type: none;font-size:14px;line-height: 24px;}
+    #welcome .bulletarrow {color:#f00;margin:0px 0px 0px -20px;padding:0px 2px 0px 0px;font-size:24px;}
+    #welcome .aquo {color:#f00;padding:0px 2px 0px 0px;font-size:16px;}
+    #welcome .quote {padding:0px 30px 0px 30px;font-weight: bold;font-size:14px;}
+    #welcome .imgbelt {top:4px;height:130px;padding:3px 0px 0px 3px;background: rgb(0,0,0);}
+    #welcome .links {font-size:20px;line-height: 18px;font-weight:bold;}
+    #welcome Table {margin: 0px 0px 0px -10px;}
+    #welcome #topCTA a:link {text-decoration:underline;color:#31088C;}/*#E1B546;#989DA5;*/
+    /*#welcome #topCTA a:visited {text-decoration:underline;color:#31088C;}/*#E1B546#989DA5;*/
+    #welcome #topCTA a:hover {text-decoration:none;color:#31088C;}/*#E1B546;*/
+    #welcome #topCTA a:active  {text-decoration:underline;color:#31088C;}/*#989DA5;*/
+    #topCTA {text-align:center;font-family:Helvetica;width:600px;color:#000000;padding-bottom:6px;padding-top:22px;}/*#989DA5;*/
+    #bsp_search" {position:relative;font-size: 12px;width:137px;padding:0px;color:#D69C5A;font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;}
+    #bsp_search a:link {font-size: 12px;text-decoration:none;color:#666666;}/*Arial ,Helvetica, Garuda, sans-serif */
+    /*#bsp_search a:visited {text-decoration:none;color:#666666;}*/
+    #bsp_search a:hover {text-decoration:none;color:#E1B546;}
+    #bsp_search a:active  {text-decoration:none;color:#000000;}
+    .tight{padding:0;margin:2px 0 -6px 0 ;border:0px;}
+    #specifications Table {margin: 0px 0px 0px 0px}
+    #offers{width:108px;font-family: Arial, Helvetica, sans-serif;font-size:11px;color:#E1B546;font-weight:bold;line-height:normal;}
+    #offers a{text-decoration:none;}
+    #20px a:link {font-weight:bold;text-decoration:none;color:#989DA5;}
+    /*#20px a:visited {font-weight:bold;text-decoration:none;color:#989DA5;}*/
+    #offers a:hover {font-weight:bold;text-decoration:none;color:#E1B546;}
+    #offers a:active  {font-weight:bold;text-decoration:none;color:#D69C5A;}
+    
+    #mghNews {border: 1px #000000 solid;padding: 20px 20px 10px; visibility: hidden; position: absolute; background-color: rgb(255, 255, 255); top: 10px; left: 100px; width: 500px;}
+    .contact-text{font-size:11px;padding-bottom:10px;}
+    .nice-text{width:120%;background:#FFFFCC;font-size:12px;text-align:justify;border:1px solid #AAAAAA;padding: 18px 8px 18px 8px;-webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;}
+    #mghNews .testamonial{color:#5566aa;margin-bottom:20px;position:relative;left:80px;width:400px;background-color:#ffc;line-height:15px;font-size:12px;padding:10px;border:2px;border-style:dotted;}
+    .promo {width:180px;height:140px;padding:20px;margin:20px 15px 0px 0px;font-family: Arial, Helvetica, sans-serif;font-size:20px;font-weight: bold;color:rgb(255,255,255);}
+    .promomore {text-align:right;margin:0px 15px 0px 0px;background:rgb(34,182,182);font-family: Arial, Helvetica, sans-serif;font-size:14px;color:rgb(255,255,255);}
+    .pulltext {font-size:28px;font-family: georgia,times, times new roman,Arial, Helvetica, sans-serif;margin:0px 0px -15px 0px;}
+    .allthisalink{background:#FFF;text-decoration: none;cursor: pointer}
+    .question{width:480px;font:12px "Lucida Grande",Geneva,Arial,Verdana,sans-serif;color:blue;cursor:pointer;padding:0px 0px 5px 20px;}
+    .question:hover{text-decoration:underline;}
+    .answer{display:none;width:480px;padding:10px 0px 25px 0px;}
+    .answer p{width:480px;font:12px "Lucida Grande",Geneva,Arial,Verdana,sans-serif;}
+    .answer h2{color:rgb(225, 181, 70);font:bold 16px "Lucida Grande",Geneva,Arial,Verdana,sans-serif;}
+    .more{display:inline-block;margin-top:2px;height:30px;width:42px;background-image:url('http://www.maxgoldhouse.com/images/viewbut3.png');background-repeat:no-repeat;text-decoration:none;}
+
+#logo_container
+{
+ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+ font-size:12px; 
+    width: 768px;
+    background-color: #ffffff;
+    position: relative;
+    xmargin-left:180px;
+}
+#logo_header
+{
+    width: 506px;
+    height: 48px;
+    float: left;
+    padding: 5px 0px 0px 0px;
+    margin: 0px 0px 5px 0px;
+    background: rgb(34,182,182);
+}
+#logo_righthead
+{
+    Display:block;
+    width:250px;
+    height: 48px;
+    background: rgb(1,13,53);
+    color: #ffffff;
+    margin: 0px -3px 0px 0px;
+    padding: 5px 5px 0px 5px;
+    xborder-left:solid 1px rgb(1,13,53);/**/
+}
+#logo_righthead h1
+{
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:bold;
+    }
+#logo_right
+{
+    width:250px;
+    font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size:small;
+    padding: 5px 5px 5px 5px;
+    height: 48px;
+
+}
+.logo_Bennlogo
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    text-align: left;
+    font-weight:900;
+    padding: 15px 0px 0px 10px;
+    margin:0px 0px 0px 0px;
+    color: #ffffff; 
+    	5px: bottom;
+}
+#logo_logotag
+{
+    display:inline;
+    margin: 0px 0px 0px 10px;
+    color: #ffffff;
+}
+#logo_logotag h1
+{
+    display:inline;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;   
+}
+
+    .logo_red
+    {
+        color:rgb(255,0,0);
+    }
+    .logo_yellow
+    {
+        color:rgb(255,235,153);
+    }
+	.logo_blue
+{
+	color: #0099ff;
+ }
+    .logo_logofooter
+    {
+    left:0px;
+    WIDTH:766px;
+    height:16px;
+    margin-top:-6px;
+    border-top:solid 2px rgb(255,235,153);
+    background:rgb(1,13,53);
+    }
+    .logo_logofooter img
+    {
+        border:none;
+    }
+    .logo_spanspeccontact
+    {
+   margin-top:-3px;
+   width:757px;
+   font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+   text-align:right;
+   font-size: 12px;
+   color:rgb(256,256,256); 
+   font-weight:bold;
+   vertical-align:top;
+
+}
+ .formtitle
+{
+padding: 0px 8px 10px 8px;
+font-family:Courier;
+font-size: 14px;
+font-weight: bold;
+color: rgb(51,51,102);
+}
+.formlabel
+{
+padding: 5px 8px 2px 10px;
+font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-weight: normal;
+color: #aaa;
+}
+
+.formfield
+{
+padding: 0px 8px 5px 8px;
+font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 10px;
+font-weight: normal;
+color: Black;
+}
+.formfieldindent
+{
+    padding: 0px p=0px 0px 10px;
+}
+.offplanbody{font-family:Verdana,Arial, Helvetica, sans-serif;}
+.offplanbody h3{color:rgb(128,71,142);font-size:x-large;}
+.offplanbody p b{color:rgb(128,71,142);font-size:x-large;}
+#welcome .offplanbody li{font-size:11px;color:rgb(128,71,142);line-height:16px;margin-left:-20px;}
+#enqfrmbtns 
+{
+    position: relative;
+    top: 10px;
+    text-align:center;
+    width: 175px;
+    height: 50px;
+}
+#envpol a {display:block;width:100px;height:100px;xposition:absolute;xleft:10px;xtop:14px;margin-top:15px;background-image:url('http://www.maxgoldhouse.com/images/envpol.gif');background-repeat:no-repeat;}
+#envpol a div{width:140px;height:120px;visibility:hidden;}
+#sellwithMGH {display:block;width:100px;height:100px;position:absolute;left:2px;top:255px;font-family: Arial, Helvetica, sans-serif;font-size:11px;color:#E1B546;font-weight:bold;}
+#sellwithMGH a{font-weight:bold;text-decoration:none;color:#E1B546;}
+#sellwithMGH a:hover{font-weight:bold;text-decoration:none;color:#E1B546;}
+#sellwithMGH a:active  {font-weight:bold;text-decoration:none;color:#D69C5A;}
+
+.bookmark_btn
+{
+    padding: 10px 0 20px 0;
+}
+#LiveChatDiv img
+{
+    border:0px none #ffffff;
+    padding-left:0px;
+    padding-top:10px;
+}
+/* Positioning styles */
+.fp_headerkeywordscontainer 
+{
+/*margin:0 auto;*/
+width:852px;
+background-color:#E1B546;/*390C52*/
+line-height:24px;
+text-align:center;
+}
+.fp_headerkeywords{
+width:840px;
+color:#FFFFFF;
+font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+font-size:12px;
+text-decoration:none;
+}
+.fp_headerkeywords a{
+color:#FFFFFF;/*#000000*/
+font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+font-size:12px;
+text-decoration:none;
+}
+.fp_headerkeywords a:hover{
+xwidth:1000px;
+color:#FFFFFF;
+font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+font-size:12px;
+text-decoration:underline;
+}
+.fp_footerkeywordscontainer {
+padding-top:10px;
+width:100%;
+text-align:center;
+}
+.fp_footerkeywords{
+color:#000000;
+font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+font-size:12px;
+text-decoration:none;
+}
+.fp_footerkeywords a{
+color:#000000;
+font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+font-size:12px;
+text-decoration:none;
+}
+.fp_footerkeywords a:hover{
+color:#000000;
+font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+font-size:12px;
+text-decoration:underline;
+}
+#crosslink a{
+font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+color:#000000;
+font-size:12px;
+text-decoration:none;
+}
+#crosslink a:hover{
+font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+color:#000000;
+font-size:12px;
+text-decoration:underline;
+}
+.crosslinkcontainer{
+width:610px;
+font-family:"Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+color:#000000;
+font-size:12px;
+padding-left:50px;
+}
+.fleft{float:left;}
+.fright{float:right;}
+.propgrid
+{
+    width:190px;
+    padding:10px;
+    font-size:11px;
+    z-index:999;
+    min-height:205px;
+}
+.propgriddetails
+{
+    font-size:13px;
+    float:left;
+    background-color:#ffffff;
+    width:380px;/*380*/
+    border:1px solid #AAAAAA;/*rgb(255,235,153);*/
+    display:none;
+    z-index:1000;
+    /*filter:alpha(opacity=90);
+	-moz-opacity:0.90;
+	-khtml-opacity: 0.90;
+	opacity: 0.90;*/
+}
+/*low browser*/
+.propgriddetails.relative{position:relative;height:117px;padding:10px;}
+/*high browser*/
+.propgriddetails.absolute
+{
+    position:absolute;
+    left:-8px;
+    padding:20px;
+	-moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    /*background-color:#E0ECF8;#F5F6CE;*/
+}
+.propgriddetails img{border:none;}
+.propgriddetails b{font-size:13px;}
+.propgridimage{position:relative;background-color:#ffffff;width:100%;height:100%;}
+.propgrid img{vertical-align:text-top;}
+.propgrid a{font-size:11px;}
+.newlisting{position:absolute;left:4px;top:6px;}
+.newlisting img{border:none;padding:0px;}
+#propgridcontainer{width:645px;overflow:auto;}
+#propgridcontainer a{font-size:11px;}
+.breaker{clear:both;}
+.clean{border:none;padding:0px  3px 1px 0px;margin:0;}
+.handpointer{cursor:pointer;}
+/* style.css */
+img{border:1px solid #aaa;}
+
+#nav{	
+	position:absolute;left:0;
+	background: url(images/skynavback.jpg) repeat-y 0 0;
+}
+#nav a{
+	display:block; 
+	text-decoration:none;
+	color:#44a;
+	font-weight:bold;
+	font-size:10px;
+	padding:3px;margin:2px;
+	border-top:1px solid #ccc;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	border-left:1px solid #ccc;	width:140px;	voice-family:"\"}\"";	voice-family:inherit;	width:135px;
+}
+html>body #nav a{width:125px;
+}	
+#footer{	margin-top:20px;padding-top:10px;border-top:2px solid #999;}
+#footer a{	display:inline; font-size:10px;margin-right:1px;letter-spacing:-1px;}
+#copyright{	
+	border-top:1px solid #999;
+	margin-top:10px;
+	font-size:10px;	
+	letter-spacing:-1px;
+}
+#thirdcolumn{	
+	position:absolute;
+	left:620px;	
+	top:200px;
+	width:120px;
+}
+#thirdcolumn a{	
+	display:block;	
+	margin:0 0 3px 0;
+}
+.record{	
+	padding:15px 3px 15px 23px;
+	clear:both;
+	margin-bottom:5px;
+	border-top:1px dotted #989DA5;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:1.5em;
+	font-size:12px;
+	width:586px;	voice-family:"\")\"";	voice-family:inherit;	width:580px;
+}
+html>.record{
+	width:580px;
+}
+.record .spanish-properties{
+	float:left;
+	color:#003366;
+}
+.record .text, .record .recordsummary{
+	margin:5px 0 0 200px;
+}
+.record a img{
+	float:left;
+	margin:5px 10px 5px 5px;
+	padding:4px;
+	border:1px solid #aaa;
+	/*border-right:2px solid #aaa;
+	border-bottom:2px solid #aaa;*/
+}
+.record .text a:link {text-decoration:none;color:#989DA5;}
+/*.record .text a:visited {text-decoration:none;color:#989DA5;}*/
+.record .text a:hover {text-decoration:none;color:#E1B546;}
+.record .text a:active  {text-decoration:none;color:#989DA5;}
+
+.record img{border:none; }
+
+.towninfo{clear:both;}
+.towninfo p img{
+	margin:5px 5px 15px 0;
+	float:left;
+}
+.towninfo p + p img{
+	margin:5px 0 5px 5px;
+	float:right;
+}
+.intro p img, .intro p + p + p img{
+	margin:5px 5px 5px 0;
+	float:left;
+}
+.intro p + p img{
+	margin:5px 0 5px 5px;
+	float:right;
+}
+.golfcourse p img{
+	margin:5px 0 5px 5px;
+	float:right;
+}
+.golfcourse p + p img{
+	margin:5px 0 5px 5px;
+	float:right;
+}
+#searchfilter{
+	position:absolute;
+	top:200px;
+	left:620px;
+	text-align:right;
+}
+#searchfilter select{
+	display:block;
+	width:100px;
+}
+#pagenav{
+	float:right;
+	clear:both;
+}
+form dt{
+	float:left;
+	margin:0;
+	width:160px;	
+}
+#weather{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#ddd;
+	position:absolute;
+	left:400px;
+	top:130px;
+}
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+.clearfix {display: inline-table;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */dt {
+	float: left;
+}
+dd {
+	margin-left: 160px;
+}
+
+#footer{
+	background:url(images/footer.jpg) no-repeat bottom left;
+	clear:both;
+	margin:100px 0 0 0
+}
+
+img{border:1px solid #aaa;padding:5px;}/*#aaa*/
+#header img{border:0}
+.spanish-homes{clear:both;}
+.spanish-homes img{float:left;clear:left;margin:0 5px 5px 0}
+.spanish-homes p{margin-left:200px;}
+.drop{
+	font-size:20px;
+	font-weight:bold;
+	border:2px solid #998;
+	margin:0 3px 3px 0;
+	padding:3px;
+	background-color:#ccf;
+	float:left;
+	display:inline;
+}
+#maincontent, #thinmaincontent,#nav,#latest{
+	top:140px; 
+}
+/* inc_tabnavmenu.css*/
+#tabmenu{font-family:Verdana,Arial, Helvetica, sans-serif;font-size:11px;padding:0px;}
+#tabMenu{width:174px;margin-bottom:30px;}
+#search{text-align:center;color:#fff;background:#30048B;padding:8px 0px;font-weight:bold;border-top:4px solid #E1B546;border-bottom:6px solid #E1B546;margin-bottom:6px;}
+#tabMenu ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	width: 100%;
+}
+#tabMenu ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 31px;
+	line-height: 31px;
+	border: 1px solid #999;
+	border-left: none;
+	margin-bottom: -1px;
+	background: #30048B;/*#e0e0e0;*/
+	overflow: hidden;
+	position: relative;
+}
+#tabMenu ul.tabs li a {
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	font-size: 0.8em;
+	padding: 0 10px;
+	border: 1px solid #fff;
+	outline: none;
+}
+#tabMenu ul.tabs li a:hover {
+	background: #ccc;
+}	
+#tabMenu ul.tabs li.active, html ul.tabs li.active a:hover, #tabMenu ul.tabs li.active a{
+	background: #fff;
+	border-bottom: 1px solid #fff;
+	color:#000;
+}
+#tabMenu .tab_container {
+	border: 1px solid #999;
+	border-top: none;
+	clear: both;
+	float: left; 
+	width: 100%;
+	background: #fff;
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+#tabMenu .tab_container li{
+list-style: none;
+margin-left:-25px;
+}
+#tabMenu .tab_content {
+	xpadding: 20px;
+	font-size: 0.9em;
+	display:none;
+}
+#tab1 .tabcontent{display:block;}
+#tabMenu .tab_content h2 {
+	font-weight: normal;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ddd;
+	xfont-size: 1.8em;
+}
+#tabMenu .tab_content a{
+	color: #254588;
+	text-decoration:none;
+}
+#tabMenu .tab_content img {
+	float: left;
+	margin: 0 20px 20px 0;
+	border: 1px solid #ddd;
+	padding: 5px;
+}	
+	table{border-collapse:collapse;font-size:11px;}
+	td{padding:2px 2px 2px 2px;font-size:11px;}
+	td a{text-decoration:none;color:#666666;}
+	
+	#cpanel{padding:0px 0px 0px 10px;}
+	#cpanel ul li{list-style-type: none;margin-left:-40px;line-height:14px;}
+    #cpanel a:link {font-weight:bold;text-decoration:none;color:#31088C;}/*#E1B546;*/
+    /*#cpanel a:visited {font-weight:bold;text-decoration:none;color:#31088C;}*/
+    #cpanel a:hover {font-weight:bold;text-decoration:none;color:#989DA5;}
+    #cpanel a:active  {font-weight:bold;text-decoration:none;color:#E1B546;}
+    #co2{}
+	.co{display:none;}
+	.co_box{border:1px solid #CCCCCC;padding:5px;background-color:#FFFFFF;width:33%;xbackground-image:url(http://www.maxgoldhouse.com/images/gradient.png)}
+	.co_box_on{color:#ffffff;border-top:1px solid #30048B;border-right:1px solid #30048B;border-left:1px solid #30048B;border-bottom:1px solid #FFFFFF;border-collapse:collapse;padding:5px;background-color:#30048B;width:33%;}
+	.co_sep{width:2px;border-bottom:1px solid #CCCCCC;}
+	.co_content{font-size:11px;padding:5px;border:1px solid #CCCCCC;background-color:rgb(248,248,248);}/*#E1B546*/
+	.highlights{height:26px;background-color:#30048B;font-family: Helvetica, Arial, sans-serif;text-align:center;padding:2px;font-weight:900;	font-size:13px;color:#FFFFFF;	border:1px solid #CCCCCC;}
+	.highlights td{padding:0px;}
+	.domain{color:#CCCCCC;}
+#photomast
+{
+  position:relative;
+  width:600px;
+  margin-top:37px;
+  margin-bottom:20px;
+  margin-left:25px;
+}
+#photomast img
+{
+    border:none;
+    padding:0;
+    margin:0;
+}
+#searchbuts {
+position:relative;
+padding: 12px;
+border: 1px solid #ddd;
+width: 155px;
+border-radius: 12px;
+-webkit-border-radius:12px;
+-moz-border-radius:12px;
+-opera-border-radius:12px;
+-khtml-border-radius:12px;
+background-color:rgba(240,240,240,1);
+padding-top: 25px;}
+
+.rentingbut{background-image:url(images/rentingbut.jpg);}
+.keyreadybut{background-image:url(images/keyreadybut.jpg);}
+.apbut{background-image:url(images/APbut.jpg);}
+.thbut{background-image:url(images/THbut.jpg);}
+.fincabut{background-image:url(images/fincabut.jpg);}
+.villabut{background-image:url(images/villabut.jpg);}
+.golfbut{background-image:url(images/golfbut.jpg);}
+.beachbut{background-image:url(images/beachbut.jpg);}
+.penthousebut{background-image:url(images/penthousebut.jpg);}
+/*
+.rentingbut{background-image:url(http://mghimages.maxgoldhouse.com/rentingbut.jpg);}
+.apbut{background-image:url(http://mghimages.maxgoldhouse.com/APbut.jpg);}
+.thbut{background-image:url(http://mghimages.maxgoldhouse.com/THbut.jpg);}
+.fincabut{background-image:url(http://mghimages.maxgoldhouse.com/Fincabut.jpg);}
+.villabut{background-image:url(http://mghimages.maxgoldhouse.com/Villabut.jpg);}
+.golfbut{background-image:url(http://mghimages.maxgoldhouse.com/golfbut.jpg);}
+.beachbut{background-image:url(http://mghimages.maxgoldhouse.com/beachbut.jpg);}
+.penthousebut{background-image:url(http://mghimages.maxgoldhouse.com/penthousebut.jpg);}
+*/
+.searchbut{position:relative;padding:5px;border:solid 1px #ccc;width:141px;height:75px;background-color:#fff;background-repeat:no-repeat;background-position: center;margin-bottom:10px;}
+.searchbut-label{position:absolute;width:141px;xheight:25px;bottom:5px;background-color:rgba(255,255,255,0.6);padding-top:4px;}/* opacity:0.65;*/
+#searchbuts a{font-size:16px;font-weight:bold;color:#30048B;text-decoration:none;text-align:center;}
+#searchbuts a:hover{color:#30048B;font-size:18px;}
+		
+		/*#searchbuts a:visited{color:#30048B;}*/
+#logo
+{
+    position: absolute;
+    top: -25px;
+    left: 280px;
+}
+#pwmortgage
+{
+position: absolute;
+top: 0px;
+left: 312px;
+}
+#languages
+{
+position: absolute;
+margin-top: -18px;
+ background:#30048B;
+ color:#fff;
+ width:597px;
+ height:30px;
+ font-size:11px;
+ font-weight:bold; 
+}
+#languages ul {
+padding-left: 8px;
+}
+#languages a
+{
+    text-decoration:none;
+    color:#fff;
+}
+#languages li
+{
+   display:inline;
+   float:left;
+   margin-top:-4px; 
+}
+#lenguas 
+{
+font-size:0.95em;
+margin:0 auto;
+xpadding:0.3em 0.3em 0.3em 0.3em;
+width:100%;
+}
+#lenguas a{position:relative;float:right;text-decoration:none;}
+
+.flag.no {
+background-image:url("http://www.maxgoldhouse.com/images/NO.png");
+}
+.flag.es {
+background-image:url("http://www.maxgoldhouse.com/images/ES.png");
+}
+.flag.de {
+background-image:url("http://www.maxgoldhouse.com/images/DE.png");
+}
+.flag.en {
+background-image:url("http://www.maxgoldhouse.com/images/EN.png");
+}
+.flag.ru {
+background-image:url("http://www.maxgoldhouse.com/images/RU.png");
+}
+/* 
+.flag.no {
+background-image:url("http://mghimages.maxgoldhouse.com/NO.png");
+}
+.flag.es {
+background-image:url("http://mghimages.maxgoldhouse.com/ES.png");
+}
+.flag.de {
+background-image:url("http://mghimages.maxgoldhouse.com//DE.png");
+}
+.flag.en {
+background-image:url("http://mghimages.maxgoldhouse.com/EN.png");
+}
+.flag.ru {
+background-image:url("http://mghimages.maxgoldhouse.com/RU.png");
+}
+*/
+.flag {
+background-position:0 50%;
+background-repeat:no-repeat;
+margin:0 0.4em;
+padding-left:35px;
+}
+.gridoffer, .gridsold{position:absolute;top:45px;left:6px;width:170px;padding:5px 0px 5px 0px;background:#fff;color:Red;font-size:20px;font-weight:bold;text-align:center;filter: alpha(opacity=70);opacity:0.7;}
+.gridRental{position:absolute;top:0px;left:6px;width:170px;padding:0px 0px 5px 0px;background:#fff;color:green;font-size:20px;font-weight:bold;text-align:center;filter: alpha(opacity=70);opacity:0.7;}
+.banneroffer, .bannersold{position:absolute;left:51px;width:170px;margin-top:30px;padding:5px 0px 5px 0px;background:#fff;color:Red;font-size:20px;font-weight:bold;text-align:center;filter: alpha(opacity=70);opacity:0.7;}
+.bannerRental{position:absolute;left:51px;width:170px;margin-top:0px;padding:0px 0px 5px 0px;background:#fff;color:Green;font-size:20px;font-weight:bold;text-align:center;filter: alpha(opacity=70);opacity:0.7;}
+
+.bigsold{width:710px;padding:20px 0px 20px 0px;background:#fff;color:Red;font-size:60px;font-weight:bold;text-align:center;filter: alpha(opacity=70);opacity:0.7;}
+.bigoffer{position:absolute;left:25px;width:710px;top:360px;padding:20px 0px 20px 0px;background:#fff;color:Red;font-size:60px;font-weight:bold;text-align:center;filter: alpha(opacity=70);opacity:0.7;}
+.bigRental{position:absolute;left:25px;width:710px;top:160px;padding:20px 0px 20px 0px;background:#fff;color:green;font-size:60px;font-weight:bold;text-align:center;filter: alpha(opacity=70);opacity:0.7;}
