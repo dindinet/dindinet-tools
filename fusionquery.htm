@@ -6,7 +6,7 @@
 <script type="text/javascript">
 function processData(json){
 var htm = '';
-var dbcols = {};
+var rsProp = {};
   for (var c = 0, col; col=json.table.cols[c]; c++){
     rsProp[col] = c;
     //alert('col c = '+col);
