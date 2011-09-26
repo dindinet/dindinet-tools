@@ -28,7 +28,7 @@ $.getJSON(picasaUrl, function(json) {
     
     $.each(json.feed.entry, function(i, pics) {
 
-      //var thumb = pics.media$group.media$thumbnail[0].url;        
+      var thumb = pics.media$group.media$thumbnail[0].url;        
 var pictures = pics.media$group.media$content[0].url;
 if(i == 0){
 title = pics.title.$t
