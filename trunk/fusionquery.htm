@@ -6,9 +6,12 @@
 <script type="text/javascript">
 function processData(json){
 var htm = '';
-
+var dbcols = {};
+  for (var c = 0, col; col=json.table.cols[c]; c++){
+    dbcols[col[c]] = c;
+  }
   for (var i = 0, row; row=json.table.rows[i]; i++){
-    htm+=":-)"+row+" <br/><br/>";
+    htm+=":-)"+row(dbcols.strPropertyId+" <br/><br/>";
   }
  document.getElementById("fusion").innerHTML = htm
 }
@@ -28,9 +31,5 @@ document.getElementsByTagName("head")[0].appendChild(script);
 
 </script>
 <div id='fusion'></div>
-<!--<div>
-<embed pluginspage = "http://www.macromedia.com/go/getflashplayer" wmode="transparent" src="http://picasaweb.google.com/s/c/bin/slideshow.swf" flashvars="host=picasaweb.google.com&amp;RGB=0xffffff&amp;feed=http%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fdklongley%2Falbumid%2F5652509740618945633%3Fkind%3Dphoto%26alt%3Drss" type ="application/x-shockwave-flash" height ="315" width="378"></embed>
-</div>-->
-
 </body>
 </html>
