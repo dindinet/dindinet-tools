@@ -1,0 +1,22 @@
+<html>
+   <head>
+      <script type='text/javascript'>
+         function listkeys(feedobj,depth) {
+            for (key in feedobj) {
+               for (var i=0; i<depth; i++) document.write('- ');
+               document.write(key+' = '+feedobj[key]+'<br/>');
+               listkeys(feedobj[key],depth+1);
+            }
+         }
+
+         function showfeedcontent(json) {
+            listkeys(json,0);
+         }
+      </script>
+  </head>
+  <body>
+     JSON FEED PARSER
+     <br/><br/>
+     <script src="http://dinditest.blogspot.com/feeds/posts/default?alt=json-in-script&callback=showfeedcontent"></script>
+  </body>
+</html>

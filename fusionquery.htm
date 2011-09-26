@@ -1,0 +1,36 @@
+<html>
+<head>
+
+</head>
+<body>
+<script type="text/javascript">
+function processData(json){
+var htm = '';
+
+  for (var i = 0, row; row=json.table.rows[i]; i++){
+    htm+=":-)"+row+" <br/><br/>";
+  }
+ document.getElementById("fusion").innerHTML = htm
+}
+</script>
+<script type="text/javascript">
+script = document.createElement("script")
+//script.src = "https://www.google.com/fusiontables/api/query?sql=SELECT+*+FROM+1462263+WHERE+Rubrum+DOES+NOT+CONTAIN+'Beach'+OFFSET+0+LIMIT+1&jsonCallback=processData"; 1583324
+//script.src = "https://www.google.com/fusiontables/api/query?sql=SELECT+*+FROM+1462263+OFFSET+2+LIMIT+2&jsonCallback=processData";
+//+strPropertyId+,+intPrice+,+strPropertyType+,+strLocation_Detail+,+strDesc+
+script.src = "https://www.google.com/fusiontables/api/query?sql=SELECT+ROWID+,+strPropertyId+,+intPrice+,+strPropertyType+,+strLocation_Detail+,+strDesc+FROM+1583324+OFFSET+150+LIMIT+20&jsonCallback=processData";
+
+//script.src = "https://www.google.com/fusiontables/api/query?sql=INSERT+INTO+1462263+(Timestamp+,+Ref+,+Price+,+Type+,+Rubrum+,+Location+,+Pool+)+VALUES+ (''+,+'DH4-234VM'+,+250000+,+'Apartment'+,+'Beach,Golf'+,+'Villamartin'+,+'yes'+)&jsonCallback=processData";
+//script.src = "https://www.google.com/fusiontables/api/query?sql=SELECT+*+FROM+1583324+OFFSET+150+LIMIT+20&jsonCallback=processData";
+
+document.getElementsByTagName("head")[0].appendChild(script);
+
+
+</script>
+<div id='fusion'></div>
+<!--<div>
+<embed pluginspage = "http://www.macromedia.com/go/getflashplayer" wmode="transparent" src="http://picasaweb.google.com/s/c/bin/slideshow.swf" flashvars="host=picasaweb.google.com&amp;RGB=0xffffff&amp;feed=http%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fdklongley%2Falbumid%2F5652509740618945633%3Fkind%3Dphoto%26alt%3Drss" type ="application/x-shockwave-flash" height ="315" width="378"></embed>
+</div>-->
+
+</body>
+</html>

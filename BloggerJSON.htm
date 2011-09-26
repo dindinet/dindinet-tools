@@ -1,0 +1,162 @@
+<html>
+<head></head>
+<body>
+<div id="feedResult"> 
+            <li>Search Results will be inserted here ...</li> 
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script style="text/javascript">
+(function($){
+    $.fn.extend({ 
+        //plugin name - scrollMe
+        jsfeed: function(options) {
+ 
+            var defaults = {
+                feedUrl: 'http://dinditest.blogspot.com/feeds/posts/default?alt=json', // the url to the feed you need to pul in
+                axis: 'vertical', // the axis horizontal or vertical
+                scrollWidth: 300, // the scroll width
+                scrollHeight: 100, // the scroll height
+                speed: "slow", // scroll speed
+                items_per_page: 2, // number off items per page
+                navClass: "MFSN",
+                scrollId: "feedResult"
+            };
+             
+            var options = $.extend(defaults, options);
+            
+            
+            function getFeed(){
+                 
+                    $.getJSON(options.feedUrl+'&callback=?', function(json) {
+                        
+                        
+                        console.log(json);
+                        
+                         console.log("items"+options.items_per_page);
+                         console.log("json"+json.feed.entry.length);
+                         
+                         var max_length = json.feed.entry.length;
+                         var max_elem   = max_length / options.items_per_page - 1;
+                         var page_count   = max_length / options.items_per_page;
+                         console.log('max pages'+max_elem);
+                         var height = options.scrollHeight * options.items_per_page;
+                         console.log('height'+height);
+                         var html = '';
+                         $.each(json.feed.entry, function(i, blogger) {
+                         
+                         console.log(blogger);
+                         
+                          // strip blogger tags
+               var content = strip_tags(blogger.content.$t).substr(0,80);
+               html += '<li style="height:'+options.scrollHeight+'px;"><div class="padder"><em>15th September 2011</em><h2>' + blogger.title.$t + '</h2><p>' + content  + ' <a target="_blank" href="'+blogger.link[2].href+'">Read More</a></p></div></li>'; //
+                         
+                         
+                         });
+                         
+                         // add css to container
+                         var cssObj = {
+                          'height' : height+'px',
+                          'overflow' : 'hidden',
+                          'position' : 'relative',
+                          'color' : 'rgb(0,40,244)'
+                        }
+
+                        $('#'+options.scrollId).html("<ul style='position:absolute;'>"+html+"</ul>").css(cssObj);
+                        
+                        $('#'+options.scrollId).after("<a href='#' id='up'>up</a><span class='count'>1/"+page_count+"</span><a href='#' id='down'>down</a>");
+                        
+                        
+                        // set the var for the count
+                        var count = 2;
+                        // up arrow sroll
+                        $('#up').click(function(){
+                        
+                        var position = $("ul").position();
+
+                        var scroll = position.top - height;
+                        
+                        console.log('minus top'+scroll);
+                        //var overallHeight = options.items_per_page * height;
+                        
+                        var test = height * max_elem;
+                        
+                        console.log('t='+test);
+                        
+                        //console.log('position top'+position.top);
+                        
+                        
+                        if(scroll >= '-'+test){
+                         if($("ul:animated").length==0){
+                             
+                             
+                         $(".count").html(count + "/" + page_count);
+                        count++;
+                         $("ul").stop().animate({ 'top': scroll + 'px' }, options.speed );
+                         }
+                        }
+                        
+                        return false;
+                        
+                        });
+                        
+                        // down arrow scroll
+                        $('#down').click(function(){
+                        
+                        var position = $("ul").position();
+                        
+                        var scroll = position.top + height;
+                        
+                        console.log(position);
+                        
+                        if(position.top != 0){
+                         if($("ul:animated").length==0){
+                        $(".count").html(count-2 + "/" + page_count);
+                        count--;
+                         $("ul").stop().animate({ 'top': scroll + 'px' }, options.speed );
+                        }
+                        }
+                        
+                        return false;
+                        
+                        });
+                        
+                    });
+                    
+                    return false;         
+            }
+            
+            getFeed()
+    
+        }
+    });
+})(jQuery);
+
+$('#feedResult').jsfeed();
+
+// Functions
+function strip_tags(html){
+ 
+        //PROCESS STRING
+        if(arguments.length < 3) {
+            html=html.replace(/<\/?(?!\!)[^>]*>/gi, '');
+        } else {
+            var allowed = arguments[1];
+            var specified = eval("["+arguments[2]+"]");
+            if(allowed){
+                var regex='</?(?!(' + specified.join('|') + '))\b[^>]*>';
+                html=html.replace(new RegExp(regex, 'gi'), '');
+            } else{
+                var regex='</?(' + specified.join('|') + ')\b[^>]*>';
+                html=html.replace(new RegExp(regex, 'gi'), '');
+            }
+        }
+ 
+        //CHANGE NAME TO CLEAN JUST BECAUSE 
+        var clean_string = html;
+ 
+        //RETURN THE CLEAN STRING
+        return clean_string;
+}
+</script>
+</body>
+</html>
