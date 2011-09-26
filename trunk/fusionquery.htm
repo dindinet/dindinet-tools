@@ -8,11 +8,11 @@ function processData(json){
 var htm = '';
 var dbcols = {};
   for (var c = 0, col; col=json.table.cols[c]; c++){
-    dbcols[col] = c;
+    rsProp[col] = c;
     //alert('col c = '+col);
   }
   for (var i = 0, row; row=json.table.rows[i]; i++){
-    htm+=":-)"+row[dbcols.strPropertyId]+"<br/>"+row[dbcols.intPrice]+"<br/>"+row[dbcols.strPropertyType]+"<br/>"+row[dbcols.strLocationDetail]+"<br/>"+row[dbcols.strDesc]+" <br/><br/>";
+    htm+=":-)"+row[rsProp.strPropertyId]+"<br/>"+row[rsProp.intPrice]+"<br/>"+row[rsProp.strPropertyType]+"<br/>"+row[rsProp.strLocationDetail]+"<br/>"+row[rsProp.strDesc]+" <br/><br/>";
   }
  document.getElementById("fusion").innerHTML = htm
 }
