@@ -8,8 +8,8 @@ function processData(json){
 var htm = '';
 var dbcols = {};
   for (var c = 0, col; col=json.table.cols[c]; c++){
-    dbcols[col[c]] = c;
-    alert('col c = '+col[c]);
+    dbcols[col] = c;
+    alert('col c = '+col);
   }
   for (var i = 0, row; row=json.table.rows[i]; i++){
     htm+=":-)"+row(dbcols.strPropertyId)+" <br/><br/>";
