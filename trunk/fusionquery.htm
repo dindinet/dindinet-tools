@@ -12,7 +12,7 @@ var rsProp = {};
     //alert('col c = '+col);
   }
   for (var i = 0, row; row=json.table.rows[i]; i++){
-    htm+="<b>Property Id:</b> "+row[rsProp.strPropertyId]+"<br/><b>Price:</b> "+row[rsProp.intPrice]+"<br/><b>Property Type:</b> "+row[rsProp.strPropertyType]+"<br/><b>Location:</b> "+row[rsProp.strLocationDetail]+"<br/>"+row[rsProp.strDesc]+" <br/><br/>";
+    htm+="<b>Property Id:</b> "+row[rsProp.strPropertyId]+"<br/><b>Price:</b> "+row[rsProp.intPrice]+"<br/><b>Property Type:</b> "+row[rsProp.strPropertyType]+"<br/><b>Location:</b> "+row[rsProp.strLocation_Detail]+"<br/>"+row[rsProp.strDesc]+" <br/><br/>";
   }
  document.getElementById("fusion").innerHTML = htm
 }
