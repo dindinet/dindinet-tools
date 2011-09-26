@@ -1,0 +1,42 @@
+<html>
+<head>
+<style type="text/css">
+img{padding:5px;border:1px solid gray;margin-bottom:20px;}
+ul{list-style-type:none;}
+</style>
+</head>
+<body>
+<div>A L L   A L B U M S</div>
+<div id="picasa"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script style="text/javascript">
+var picasaUrl = 'https://picasaweb.google.com/data/feed/base/user/dklongley?alt=json&kind=album&hl=en_GB&fields=entry(title,media:group(media:content(@url)))&callback=?';
+
+var arrAlbums = new Array();
+var html = '';
+
+$.getJSON(picasaUrl, function(json) {
+    
+    $.each(json.feed.entry, function(i, albums) {
+
+    var albumtitle = albums.title.$t;        
+    var albumurl = albums.media$group.media$content[0].url;
+
+    arrAlbums[albumtitle] = albumurl;
+//alert('The URL is '+albums.media$group.media$content[0].url);
+    });
+    
+    //for (var i in arrAlbums) {
+	html +=  '<img width="110" src="' + arrAlbums['1024'] + '"/><br/>';
+             html +=  '<img width="110" src="' + arrAlbums['1025'] + '"/><br/>';
+             html +=  '<img width="110" src="' + arrAlbums['866'] + '"/><br/>';
+    //}
+
+//alert(arrAlbums['1024']);
+    $('#picasa').html(html);
+
+});
+</script>
+<!--<embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="400" height="267" flashvars="host=picasaweb.google.com&hl=en_GB&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fdklongley%2Falbumid%2F5652904312826051457%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_GB" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>-->
+</body>
+</html>
