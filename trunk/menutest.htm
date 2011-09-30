@@ -1,20 +1,23 @@
 <html>
 <head>
 <style type="text/css">
-.searcher{position:absolute;left:-999em;background:#fff;padding:10px;border:2px solid black;}
-  #linky{width:75px;padding:6px;border:1px solid black;text-align:center;}
+body {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 14px;background-color: white;}
+.searchbox{position:absolute;display:none;background:#fff;padding:10px;border:2px solid black;}
+
+#linky{width:75px;padding:6px;border:1px solid black;text-align:center;}
 #linky a{color:#000000;text-decoration:none;}
-#linky:hover .searcher{left:5px;}
+#linky:hover .searcbox{display:block;z-index:400;}
 .sub{display:inline-block;float:left;padding-right:30px;}
 .sub ul{padding:0;margin-top:5px;}
 .sub ul{list-style:none;}
 .sub ul li{margin:0;padding:4px;border-bottom:1px dashed black;}
 #linky .sub ul li a{color:blue;}
-.submenhead{color:#E1B546;}
+.submenhead{text-transform:uppercase;color:#E1B546;}
 </style>
 </head>
 <body>
 <div id="linky"><a href="#">SEARCH</a>
+<div class="searchbox">
 <div class="searcher">
 <div class="sub">
 <span class="submenhead">Price Search</span>
@@ -31,7 +34,21 @@
 	</ul>
 </div>
 <div class="sub">
-<span class="submenhead">MOST POPULAR</span>
+<span class="submenhead">Property Type</span>
+	<ul>
+		<li><a href="<%=G_URL%>penthouse.asp">Penthouse</a></li>
+		<li><a href="<%=G_URL%>beachfront.asp">Beachfront</a></li>
+		<li><a href="<%=G_URL%>golfproperty.asp">Golf Property</a></li>
+		<li><a href="<%=G_URL%>apartments.asp">Apartment</a></li>
+		<li><a href="<%=G_URL%>townhouses.asp">Townhouse</a></li>
+		<li><a href="<%=G_URL%>quadhouses.asp">Quadhouse</a></li>
+		<li><a href="<%=G_URL%>semidetached-villas.asp">Semi Detached Villa</a></li>
+		<li><a href="<%=G_URL%>detached-villas.asp">Detached Villa</a></li>
+		<li><a href="<%=G_URL%>fincas.asp">Fincas and Rural</a></li><li><a href="<%=G_URL%>Luxury-Exclusive-Property-For-Sale-in-Costa-Blanca-Spain.asp">Luxury Property</a></li>
+	</ul>
+</div>
+<div class="sub">
+<span class="submenhead">MOST POPULAR AREAS</span>
 	<ul>
 
 		<li><a href="<%=G_URL%>Villamartin-Orihuela.asp">Villamartin</a></li>
@@ -44,6 +61,8 @@
 		<li><a href="<%=G_URL%>La-Recoleta-Punta-Prima-Torrevieja.asp" >Punta Prima</a></li>
 	</ul>
 </div>
+  </div>
+<div class="searcher">
 <div class="sub">
 <span class="submenhead">ORIHUELA AREA</span>
 	<ul>
@@ -82,19 +101,7 @@
 		<li><a href="<%=G_URL%>Los_Alcazares.asp">Los Alcazares</a></li>
 	</ul>
 </div>
-<div class="sub">
-<span class="submenhead">Property Type</span>
-	<ul>
-		<li><a href="<%=G_URL%>penthouse.asp">Penthouse</a></li>
-		<li><a href="<%=G_URL%>beachfront.asp">Beachfront</a></li>
-		<li><a href="<%=G_URL%>golfproperty.asp">Golf Property</a></li>
-		<li><a href="<%=G_URL%>apartments.asp">Apartment</a></li>
-		<li><a href="<%=G_URL%>townhouses.asp">Townhouse</a></li>
-		<li><a href="<%=G_URL%>quadhouses.asp">Quadhouse</a></li>
-		<li><a href="<%=G_URL%>semidetached-villas.asp">Semi Detached Villa</a></li>
-		<li><a href="<%=G_URL%>detached-villas.asp">Detached Villa</a></li>
-		<li><a href="<%=G_URL%>fincas.asp">Fincas and Rural</a></li><li><a href="<%=G_URL%>Luxury-Exclusive-Property-For-Sale-in-Costa-Blanca-Spain.asp">Luxury Property</a></li>
-	</ul>
+
 </div>
 </div>
 </body>
