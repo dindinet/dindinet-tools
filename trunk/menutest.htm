@@ -1,29 +1,57 @@
+
 <html>
 <head>
 <style type="text/css">
 body {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 14px;background-color: white;width:1000px;}
 #bspcontainer{width: 1000px;}
-#linky{position:relative;width:125px;padding:6px;border:3px solid #f7ad3e;margin-left:900px;background:#31088C;}
-#linky.button a{color:#f7ad3e;text-decoration:none;text-align:center;}
-#linky:hover .searchbox{display:block;z-index:400;}
-.searchbox{float:right;margin-right:0px;top:0px;width:530px;display:none;background:#fff;padding:20px;border:1px solid black;}
-.sub{display:inline-block;float:left;padding-right:30px;}
-.sub ul{padding:0;margin-top:5px;}
-.sub ul{list-style:none;}
-.sub ul li{margin:0;padding:4px;border-bottom:1px dotted black;}
-#linky .sub ul a li {color:#31088C;font-size:12px;text-align:left;font-weight:bold;}
-#linky .sub ul a li:hover{background:#D8D8D8;color:#989DA5;}
-.submenhead{text-transform:uppercase;color:#E1B546;}
+#quicksearch{position:relative;width:125px;padding:6px;border:3px solid #f7ad3e;margin-left:900px;background:#31088C;}
+#quicksearch.button a{color:#f7ad3e;text-decoration:none;text-align:center;}
+#quicksearch:hover .QSsearchbox{display:block;z-index:400;}
+.QSsearchbox{float:right;margin-right:0px;top:0px;width:500px;display:none;background:#fff;padding:20px;border:1px solid black;}
+.QSsub{display:inline-block;float:left;padding-right:30px;}
+.QSsub ul{padding:0;margin-top:5px;}
+.QSsub ul{list-style:none;}
+.QSsub ul li{margin:0;padding:4px;border-bottom:1px dotted black;}
+#quicksearch .QSsub ul a li {color:#31088C;font-size:12px;text-align:left;font-weight:bold;}
+#quicksearch .QSsub ul a li:hover{background:#D8D8D8;color:#989DA5;}
+.QSsubmenhead{text-transform:uppercase;color:#E1B546;}
 .clear{clear:both;}
 </style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript">
+		    $(document).ready(function() {
+				
+			    $(".QSsearchbox a").click(function(){
+				  var _gaq = _gaq || [];
+				  _gaq.push(['_setAccount', 'UA-140979-2']);
+				  _gaq.push(['_setDomainName', 'maxgoldhouse.com']);
+				alert('/QuickMenu/'+ $(this).attr('href'));
+				//_gaq.push(['_trackPageview'],'/QuickMenu/'+ $(this).attr('href'));
+				event.preventDefault();
+			    });
+
+			    $("#searchbuts a").click(function(){
+			  	var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-140979-2']);
+				_gaq.push(['_setDomainName', 'maxgoldhouse.com']);
+				alert('/QuickMenu/'+ $(this).attr('href'));
+				_gaq.push(['_trackPageview'],'/SexyButton/'+ $(this).attr('href'));
+				event.preventDefault();
+			    });
+               
+				
+				
+		    });
+		</script>
+
 </head>
 <body>
 <div id="bspcontainer">
-<div id="linky" class="button"><a href="#">QUICK SEARCH &#9660;</a>
-<div class="searchbox">
+<div id="quicksearch" class="button"><a href="#">QUICK SEARCH &#9660;</a>
+<div class="QSsearchbox">
 <div class="searcher">
-<div class="sub">
-<span class="submenhead">Price Search</span>
+<div class="QSsub">
+<span class="QSsubmenhead">Price Search</span>
 	<ul>
 		<a href='index.asp?budget=0'><li>up to &#128;100,000&nbsp;&nbsp;</li></a>
 		<a href='index.asp?budget=100000'><li>up to &#128;200,000&nbsp;&nbsp;</li></a>
@@ -36,8 +64,8 @@ body {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 14px
 		<a href='index.asp?budget=900000'><li>&nbsp;&nbsp;&#128;900,000 +&nbsp;&nbsp;</li></a>
 	</ul>
 </div>
-<div class="sub">
-<span class="submenhead">Property Type</span>
+<div class="QSsub">
+<span class="QSsubmenhead">Property Type</span>
 	<ul>
 		<a href="<%=G_URL%><li>penthouse.asp"><li>Penthouse</li></a>
 		<a href="<%=G_URL%><li>beachfront.asp"><li>Beachfront</li></a>
@@ -51,10 +79,11 @@ body {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 14px
 		<a href="<%=G_URL%><li>Luxury-Exclusive-Property-For-Sale-in-Costa-Blanca-Spain.asp"><li>Luxury Property</li></a>
 	</ul>
 </div>
-<div class="sub">
-<span class="submenhead">MOST POPULAR AREAS</span>
+<div class="QSsub">
+<span class="QSsubmenhead">MOST POPULAR AREAS</span>
 	<ul>
-    <a href="<%=G_URL%>Orihuela-Costa.asp"><li>Orihuela Costa</li></a>
+
+		<a href="<%=G_URL%>Orihuela-Costa.asp"><li>Orihuela Costa</li></a>		
 		<a href="<%=G_URL%>Villamartin-Orihuela.asp"><li>Villamartin</li></a>
 		<a href="<%=G_URL%>Playa-Flamenca-Orihuela.asp"><li>Playa Flamenca</li></a>
 		<a href="<%=G_URL%>Cabo-Roig-Orihuela.asp"><li>Cabo Roig</li></a>
@@ -68,8 +97,8 @@ body {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 14px
   </div>
 <div class="clear"></div>
 <div class="searcher">
-<div class="sub">
-<span class="submenhead">ORIHUELA AREA</span>
+<div class="QSsub">
+<span class="QSsubmenhead">ORIHUELA AREA</span>
 	<ul>
 		
 		<a href="<%=G_URL%>Orihuela-Costa.asp"><li>Orihuela Costa</li></a>
@@ -82,8 +111,8 @@ body {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 14px
 		<a href="<%=G_URL%>Rio-Mar-Orihuela.asp"><li>Rio Mar</li></a>
 	</ul>
 </div>
-<div class="sub">
-<span class="submenhead">TORREVIEJA AREA</span>
+<div class="QSsub">
+<span class="QSsubmenhead">TORREVIEJA AREA</span>
 	<ul>
 		<a href="<%=G_URL%>Torrevieja.asp"><li>Torrevieja</li></a>
 		<a href="<%=G_URL%>Dream-Hills-Torrevieja.asp"><li>Dream Hills</li></a>
@@ -97,8 +126,8 @@ body {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 14px
 	</ul>
 
 </div>
-<div class="sub">
-<span class="submenhead">MAR MENOR</span>
+<div class="QSsub">
+<span class="QSsubmenhead">MAR MENOR</span>
 
 	<ul>
 		<a href="<%=G_URL%>La-Manga-del-Mar-Menor.asp"><li>La Manga</li></a>
@@ -109,5 +138,18 @@ body {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 14px
 </div>
 </div>
 </div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-140979-2']);
+  _gaq.push(['_setDomainName', 'maxgoldhouse.com']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>
