@@ -1,0 +1,55 @@
+<html>
+<head>
+<style type="text/css">
+body{font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif;font-size:11px;}
+h2{font: normal bold 14px;}
+#specialoffers{width:600px;}
+#specialoffers .special{display:inline;float:left;max-width:30%;padding:0 0 0 20px }
+#specialoffers .special a{text-decoration:none;color:black;}
+#specialoffers img{padding:6px;border:1px solid gray;margin-bottom:5px;}
+</style>
+</head>
+<body>
+<div id="specialoffers"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script style="text/javascript">
+//<![CDATA[
+
+var bloggerUrl = 'http://dkl-simplistic.blogspot.com/feeds/posts/default/-/offerfront3?alt=json&callback=?';
+var count = 0
+$.getJSON(bloggerUrl, function(json) {
+    var description = json.feed.subtitle.$t;var title = '';var posthtml = '';var html = '';   
+    $.each(json.feed.entry, function(i, posts) {
+
+	title = posts.title.$t
+	postlink = posts.link[2].href
+
+	
+	posthtml = "<h2>"+ title +"</h2>" + posts.content.$t.substr(0,posts.content.$t.lastIndexOf("<a name='more'></a>")+19)
+	
+	posthtml = posthtml.replace(/s1600/g,"s170");
+
+	//posthtml = posthtml.replace("<a name='more'></a>","<a href='"+postlink+"' name='more'>more...</a><br />");
+	posthtml = "<a href='"+postlink+"' name='more'>"+posthtml.replace("<a name='more'></a>","")+"</a>";
+        html += "<div class=\"special\">";
+
+        html += posthtml
+
+	html += "</div>";
+	count = count + 1
+	if (count % 3 === 0){
+	html += "<div style=\"clear:both;\"></div>";}
+    });
+    //html += "</ul>";
+
+    //document.write("<div id=\"blogger\">"+html+"</div>");
+    $('#specialoffers').html(html);
+
+});
+//]]>
+</script>
+
+</body>
+</html>
+
+
