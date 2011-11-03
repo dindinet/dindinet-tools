@@ -1,6 +1,23 @@
 <html>
 <head>
 <style type="text/css">
+<<<<<<< .mine
+body{font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif;font-size:11px;}
+h2{font: normal bold 14px;}
+#container{width:700px;}
+ .special{display:inline;float:left;padding:0 0 4% 2%;}
+ .special img{background-color:white;}
+ .special a{text-decoration:none;color:black;}
+ .special:hover{background-color:#F5B038;}
+ .special img{padding:2%;border:1px solid gray;margin-bottom:5px;}
+ .col5 {width:18% !important;}
+ .col6{width:12% !important;}
+.col5 < h2{font-size:80%;color:orange;}
+.col4 {width:23% !important;}
+.col3 {width:31% !important;}
+.col2 {width:48% !important;}
+.col1 {width:96% !important;}
+=======
 .specialoffers{width:666px;}
  .special{display:inline;float:left;max-width:200px;padding:0 0 10px 12px;}
  .special img{background-color:white;}
@@ -9,11 +26,45 @@
  .special img{padding:6px;border:1px solid gray;margin-bottom:5px;}
 
 
+>>>>>>> .r52
 </style>
+<<<<<<< .mine
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+
+<script style='text/javascript'>
+=======
 <div id="specialoffers" class="specialoffers"></div>
 <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js' type='text/javascript'></script>
 <script style='text/javascript'>
+>>>>>>> .r52
 //<![CDATA[
+<<<<<<< .mine
+function drawpostgrid( divname, category, columns, imgwidth)
+{
+//var category = 'offerfront3';
+var bloggerUrl = 'http://dkl-simplistic.blogspot.com/feeds/posts/default/-/'+category+'?alt=json&callback=?';
+	$.getJSON(bloggerUrl, function(json) {
+	    var title = '';
+	    var posthtml = '';
+	    var html = '';
+	    var count = 0;
+	    $.each(json.feed.entry, function(i, posts) {
+	     title = posts.title.$t
+	     postlink = posts.link[2].href;
+	     posthtml = "<h2>"+ title +"</h2>" + posts.content.$t.substr(0,posts.content.$t.lastIndexOf("<a name='more'></a>")+19);
+	     posthtml = posthtml.replace(/\/s[\d]+\//, '/s'+imgwidth[0]+'/');
+	     posthtml = "<a href='"+postlink+"' name='more'>"+posthtml.replace("<a name='more'></a>","")+"</a>";
+	     html += "<div class=\"special col"+columns[0]*2+"\">";
+	     html += posthtml
+	     html += "</div>";
+	     count = count + 1
+	     if (count % (columns[0]*2) === 0){
+	     html += "<div style=\"clear:both;\"></div>";}
+	    });
+	    $('#'+divname).addClass("second").html(html);	    
+	});
+}
+=======
 var bloggerUrl = 'http://dkl-simplistic.blogspot.com/feeds/posts/default/-/offerfront3?alt=json&callback=?';
 $.getJSON(bloggerUrl, function(json) {
     var description = json.feed.subtitle.$t;
@@ -37,8 +88,18 @@ $.getJSON(bloggerUrl, function(json) {
     });
     $('#specialoffers').html(html);
 });
+>>>>>>> .r52
 //]]>
 </script>
+<<<<<<< .mine
+</head>
+<body>
+<script style='text/javascript'>drawpostgrid(divname='5offers',category='offerfront3', columns=[3,3], imagewidth=['80','80']);</script>
+
+=======
+>>>>>>> .r52
+<div style="width:700px;" id="5offers"></div>
+
 </body>
 </html>
 
