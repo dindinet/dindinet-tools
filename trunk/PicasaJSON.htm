@@ -24,8 +24,8 @@ ul{list-style-type:none;}
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 <script style="text/javascript">
-
-var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/113148315836633117084/albumid/5670783886688471073?alt=json&hl=en_GB&fields=title,subtitle,entry(title,media:group(media:description),media:group(media:content),media:group(media:thumbnail[@width=72](@url)))&callback=?';
+//5670783886688471073
+var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/113148315836633117084/albumid/5670802382432784225?alt=json&hl=en_GB&fields=title,subtitle,entry(title,media:group(media:description),media:group(media:content),media:group(media:thumbnail[@width=72](@url)))&callback=?';
 
 $.getJSON(picasaUrl, function(json) {
    $('h1').html(json.feed.title.$t);
