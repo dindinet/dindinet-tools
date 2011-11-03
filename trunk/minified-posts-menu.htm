@@ -1,0 +1,36 @@
+<html>
+<head>
+<style type="text/css">
+body{font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif;font-size:11px;}
+h2{font: normal bold 14px;}
+#container{width:700px;}
+ .special{display:inline;float:left;padding:0 0 4% 2%;}
+ .special img{background-color:white;}
+ .special a{text-decoration:none;color:black;}
+ .special:hover{background-color:#F5B038;}
+ .special img{padding:2%;border:1px solid gray;margin-bottom:5px;}
+
+.col5 > h2{font-size:80%;color:orange;}
+.col5 {width:18% !important;}
+.col4 {width:23% !important;}
+.col3 {width:31% !important;}
+.col2 {width:48% !important;}
+.col1 {width:96% !important;}
+.item-content{float:left;padding:4px;}
+.item-thumbnail{float:left;padding:2%;border:1px solid black;margin:2%;}
+.item-title a{padding:4px;font-size:13px;font-weight:bold;color:black;text-decoration: none;}
+.item-snippet{padding:2%;}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+
+<script style='text/javascript'>function drawpostgrid(divname,category,columns,imgwidth,summarylength){var bloggerUrl='http://dkl-simplistic.blogspot.com/feeds/posts/summary/-/'+category+'?alt=json&callback=?';$.getJSON(bloggerUrl,function(json){var title='';var posthtml='';var html='';var count=0;$.each(json.feed.entry,function(i,posts){if(posts.media$thumbnail==undefined){html+='<div class="item-content col'+columns+'">'html+='<div class="item-title"><a href="'+posts.link[2].href+'">'+posts.title.$t+'</a></div>'html+='<div class="item-snippet">'+posts.summary.$t.substr(0,summarylength)+' <a href='+posts.link[2].href+'>read more</a></div>'html+='</div>'}else{html+='<div class="item-content col'+columns+'">'html+='<div class="item-thumbnail">'html+='<a href="'+posts.link[2].href+'">'html+='<img alt="" src="'+posts.media$thumbnail.url.replace(/\/s[\d]+-c\//,'/s'+imgwidth+'/')+'">'html+='</a>'html+='</div>'html+='<div class="item-title"><a href="'+posts.link[2].href+'">'+posts.title.$t+'</a></div>'html+='<div class="item-snippet">'+posts.summary.$t.substr(0,summarylength)+' <a href='+posts.link[2].href+'>read more</a></div>'html+='</div>'}count=count+1 if(count%columns===0){html+="<div style=\"clear:both;\"></div>"}});$('#'+divname).addClass("second").html(html)})}</script>
+</head>
+<body>
+<script style='text/javascript'>drawpostgrid('5offers','offerfront3', 3, '180', 140);</script>
+
+<div style="width:700px;" id="5offers"></div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,150 @@
+<html>
+<head>
+<style type="text/css">
+body{font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif;font-size:11px;}
+h2{font: normal bold 14px;}
+#container{width:700px;}
+ .special{display:inline;float:left;padding:0 0 4% 2%;}
+ .special img{background-color:white;}
+ .special a{text-decoration:none;color:black;}
+ .special:hover{background-color:#F5B038;}
+ .special img{padding:2%;border:1px solid gray;margin-bottom:5px;}
+
+/* Grid >> 2 Columns --*/
+.grid2_1 {width:48.0%;}
+.grid2_2 {width:98.0%;}
+
+/* Grid >> 3 Columns --*/
+.grid3_1 {width:31.333%;}
+.grid3_2 {width:64.667%;}
+.grid3_3 {width:98.0%;}
+
+/* Grid >> 4 Columns --*/
+.grid4_1{width:23.0%;}
+.grid4_2{width:48.0%;}
+.grid4_3{width:73.0%;}
+.grid4_4{width:98.0%;}
+
+/* Grid >> 5 Columns --*/
+.grid5_1 {width:18.0%;}
+.grid5_2 {width:38.0%;}
+.grid5_3 {width:58.0%;}
+.grid5_4 {width:78.0%;}
+.grid5_5 {width:98.0%;}
+
+/* Grid >> 6 Columns --*/
+.grid6_1{width:14.667%;}
+.grid6_2{width:31.333%;}
+.grid6_3{width:48.0%;}
+.grid6_4{width:64.667%;}
+.grid6_5{width:81.333%;}
+.grid6_6{width:98.0%;}
+
+.item-content{float:left;padding:1%;}
+.item-thumbnail{float:left;padding:2%;border:1px solid black;margin:2%;}
+.item-title a{padding:4px;font-size:13px;font-weight:bold;color:black;text-decoration: none;}
+.item-snippet{padding:2%;}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script style='text/javascript'>
+//<![CDATA[
+var totwidth = 660
+var myfeed = 'http://dkl-simplistic.blogspot.com/';
+var oneH = ~~((totwidth/2)-((totwidth/100)*6));
+var oneHsq = oneH+'-c'
+var oneV = ~~((totwidth)-((totwidth/100)*6));//'540';
+var oneVsq = oneV+'-c';
+var twoV = oneH;
+var twoVsq = twoV+'-c';
+var twoH = oneH/2;
+var twoHsq = twoH+'-c';
+var twofiveV = ~~(((totwidth/5)*2)-((totwidth/100)*5.5));
+var twofiveVsq = twofiveV+'-c';
+var twofiveH = ~~(twofiveV/2);
+var twofiveHsq = twofiveH+'-c';
+var threefiveV = ~~(((totwidth/5)*3)-((totwidth/100)*7));
+var threefiveVsq = threefiveV+'-c';
+var threefiveH = ~~(threefiveV/2);
+var threefiveHsq = threefiveH+'-c';
+var threeV = ~~((totwidth/3)-((totwidth/100)*5));
+var threeVsq = threeV+'-c';
+var threeH = ~~(threeV/2);
+var threeHsq = threeH+'-c';
+var twothreeV = ~~(((totwidth/3)*2)-((totwidth/100)*9));
+var twothreeVsq = twothreeV+'-c';
+var twothreeH  = ~~(twothreeV/2);
+var twothreeHsq  = twothreeH+'-c';
+var onethreeV = ~~(((totwidth/3)*1)-((totwidth/100)*5));
+var onethreeVsq = onethreeV+'-c';
+var onethreeH  = ~~(onethreeV/2);
+var onethreeHsq  = onethreeH+'-c';
+var fourV = ~~((totwidth/4)-((totwidth/100)*6));
+var fourVsq = fourV+'-c';
+var fourH = ~~(fourV/2);
+var fourHsq = fourH+'-c';
+var fiveV = ~~((totwidth/5)-((totwidth/100)*6));
+var fiveVsq = fiveV+'-c';
+var sixV = ~~((totwidth/6)-((totwidth/100)*6));
+var sixVsq = sixV+'-c';
+functionfunction drawpostmenugrid( divname, category, columns, cssclass, imgwidth, summarylength)
+{
+//alert(category);
+var thecategory = '';
+if (category != ''){ thecategory = '-/'+category}
+var bloggerUrl = 'http://'+document.domain +'/feeds/posts/summary'+thecategory+'?alt=json&callback=?';
+	$.getJSON(bloggerUrl, function(json) {
+	    var html = '';
+	    var count = 0;
+	    $.each(json.feed.entry, function(i, posts) {
+	    if(posts.media$thumbnail == undefined){
+				html += '<div class="item-content '+cssclass+'">'
+					html += '<div class="item-title"><a href="'+ posts.link[2].href +'">'+ posts.title.$t +'</a></div>'
+					html += '<div class="item-snippet">'+posts.summary.$t.substr(0,summarylength)+' <a href='+ posts.link[2].href+ '>read more</a></div>'
+				html += '</div>'
+				}
+		else
+				{
+				html += '<div class="item-content '+cssclass+'">'
+					html += '<div class="item-thumbnail">'
+					html += '<a href="'+ posts.link[2].href +'">'
+					html += '<img alt="" src="'+ posts.media$thumbnail.url.replace(/\/s[\d]+-c\//, '/s'+imgwidth+'/') +'">'
+					html += '</a>'
+					html += '</div>'
+					html += '<div class="item-title"><a href="'+ posts.link[2].href +'">'+ posts.title.$t +'</a></div>'
+					html += '<div class="item-snippet">'+posts.summary.$t.substr(0,summarylength)+' <a href='+ posts.link[2].href+ '>read more</a></div>'
+				html += '</div>'
+				}
+		  count = count + 1
+	     if (count % columns === 0){
+	     html += "<div style=\"clear:both;\"></div>";}	
+	     });
+	     $('#'+divname).addClass("second").html(html);    
+	});
+}
+function inserthtml( divname, html)
+{
+$('#'+divname).html(html);    
+}
+function submenu(divname, submenucategory){
+var bloggerUrl = myfeed+'feeds/posts/summary/-/'+submenucategory+'?alt=json&callback=?';
+	$.getJSON(bloggerUrl, function(json) {
+	    var html = '';
+	    html += '<ul>'
+	    $.each(json.feed.entry, function(i, posts) {
+					html += '<li><a href="'+ posts.link[2].href +'">'+ posts.title.$t +'</a></li>'
+	     });
+	     html += '</ul>'
+	     $('#'+divname).addClass("second").html(html);    
+	});
+}
+//]]>
+</script>
+</head>
+<body>
+<script style='text/javascript'>drawpostmenugrid('5offers','', 6, 'grid3_1',threeVsq, 50);</script>
+<div style="width:660px;" id="5offers">
+</div>
+<div id="submenu"></div>
+<script type='text/javascript'>submenu('submenu','4ofakind');</script>
+</body>
+</html>
