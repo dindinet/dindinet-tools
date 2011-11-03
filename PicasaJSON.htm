@@ -3,7 +3,8 @@
 <style type="text/css">
 #picasa{width:940px}
 .oneitem a{text-decoration:none;color:black;}
-#large{float:right;display:inline;width:660px;xborder:1px solid black;padding:4px;font-family: helvetica,sans-serif;font-size:13px;}
+#large{float:right;display:inline;width:660px;xborder:1px solid black;padding:4px;}
+#large p{font-family: helvetica,sans-serif;font-size:16px;color:orange;}
 #small{float:left;display:inline;width:260px;xborder:1px solid black;}
 .itemimage {float:left;padding-right: 4px;}
 .itemdescription{font-family: helvetica,sans-serif;font-size:13px;}
@@ -39,7 +40,7 @@ $.getJSON(picasaUrl, function(json) {
 			var pictures = pics.media$group.media$content[0].url;
 			if(i == 0)
 			{
-				$('#large').html('<img src="' + (pictures)+ '" /><br/>'+imgdescription);
+				$('#large').html('<img src="' + (pictures)+ '" /><p>'+imgdescription+'</p>');
 			};		
 		      html += '<a newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" href="#"><div class="itemimage"><img src="' + (thumb)+ '" /></div></a>';
     });
@@ -49,7 +50,7 @@ $(document).ready(function(){
 $('#small a').live("hover", function(){
         var newimage = $(this).attr('newimage');
         var newdescription = $(this).attr('newdescription');
-        $('#large').html('<img src="' + (newimage)+ '" /><br/>'+newdescription);
+        $('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>');
     })
 })
 </script>
