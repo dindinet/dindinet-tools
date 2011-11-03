@@ -1,60 +1,78 @@
 <html>
 <head>
 <style type="text/css">
-img{padding:2%;border:1px solid gray;margin-bottom:20px;}
+#picasa{width:940px}
+.oneitem a{text-decoration:none;color:black;}
+#large{float:right;display:inline;width:660px;xborder:1px solid black;padding:4px;}
+#small{float:left;display:inline;width:260px;xborder:1px solid black;}
+.itemimage {float:left;padding-right: 4px;}
+.itemdescription{font-family: helvetica,sans-serif;font-size:13px;}
+img{padding:4px;border:1px solid gray;}
 ul{list-style-type:none;}
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both;}
 </style>
 </head>
 <body>
-<div>N O B B Y</div>
-<div id="picasa"></div>
+<h1></h1>
+<div id="picasa">
+<div id="small"></div>
+<div id="large"></div>
+</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 <script style="text/javascript">
-// picasa url
-//var picasaUrl = 'https://picasaweb.google.com/data/feed/base/user/dklongley/album/1024?alt=json&hl=en_GB&kind=photo&fields=subtitle,entry(title,media:group(media:content),media:group(media:thumbnail),media:group(media:description))&callback=?';
-// A more complex query
- //var albumname = '1024'
-var albumname = window.location.search.substring(1);
-//alert(albumname);
-//var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/dklongley/album/'+albumname+'?alt=json&kind=photo&hl=en_US&fields=title,subtitle,entry(title,media:group(media:content),media:group(media:thumbnail[@height=54](@url)))&callback=?';
-//var picasaUrl = 'http://picasaweb.google.com/data/entry/base/user/113148315836633117084/albumid/5670772212919910881?alt=json&hl=en_GB&fields=title,subtitle,entry(title,media:group(media:content),media:group(media:thumbnail[@height=54](@url)))&callback=?';
-var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/113148315836633117084/albumid/5670783886688471073?alt=json&hl=en_GB&fields=title,subtitle,entry(title,media:group(media:description),media:group(media:content),media:group(media:thumbnail[@height=54](@url)))&callback=?';
+
+//var albumname = window.location.search.substring(1);
+
+var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/113148315836633117084/albumid/5670783886688471073?alt=json&hl=en_GB&fields=title,subtitle,entry(title,media:group(media:description),media:group(media:content),media:group(media:thumbnail[@width=72](@url)))&callback=?';
 
 $.getJSON(picasaUrl, function(json) {
-    //var description = json.feed.subtitle.$t;
-    var title = '';
-    var imgdescription = '';
+
+   $('h1').html(json.feed.title.$t);
+   var imgdescription = '';
 	var thumb = ''; 
 	var pictures = '';  
-   //description = description.replace('[link]', '<a href="').replace('[/link]', '">More Info</a>');
-    var html = '';//'<div id="description">'+ (description) + '</div>';
-    html += "<ul>";
+
+    var html = '';
+    //html += "<ul>";
     
     $.each(json.feed.entry, function(i, pics) {
-
-<<<<<<< .mine
-		thumb = pics.media$group.media$thumbnail[0].url;        
-		pictures = pics.media$group.media$content[0].url;
-		imgdescription = pics.media$group.media$description.$t;
-		//alert(imgdescription);
-=======
-      //var thumb = pics.media$group.media$thumbnail[0].url;        
-var pictures = pics.media$group.media$content[0].url;
->>>>>>> .r51
-if(i == 0){
-title = pics.title.$t
-};
-		//title = pics.title.$t
-        //html += '<li><img src="' + (thumb) + '" /></li>';
-//
-        html += '<li>'+(imgdescription)+'<br/> <a href="'+(pictures)+'"><img src="' + (thumb)+ '" /></a></li>';
-
+			thumb = pics.media$group.media$thumbnail[0].url;        
+			pictures = pics.media$group.media$content[0].url;
+			imgdescription = pics.media$group.media$description.$t;
+			var pictures = pics.media$group.media$content[0].url;
+			if(i == 0)
+			{
+				$('#large').html('<img src="' + (pictures)+ '" /><br/>'+imgdescription);
+				//title = pics.title.$t
+			};
+			
+	      //html += '<div class="oneitem left">';
+		      html += '<a newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" href="#"><div class="itemimage"><img src="' + (thumb)+ '" /></div></a>';
+		      //html += '<div class="itemdescription">'+(imgdescription)+'</div>';
+		      
+			//html += '</div>';
+			//html += '<div class="clear"></div>';
+			
     });
-    html += "</ul>";
-    $('#picasa').html(html);
+    //html += "</ul>";
+    $('#small').html(html);
 
 });
+
+
+$(document).ready(function(){
+
+
+$('#small a').live("hover", function(){
+    
+        var newimage = $(this).attr('newimage');
+        var newdescription = $(this).attr('newdescription');
+        $('#large').html('<img src="' + (newimage)+ '" /><br/>'+newdescription);
+    })
+})
 </script>
-<!--<embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="400" height="267" flashvars="host=picasaweb.google.com&hl=en_GB&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fdklongley%2Falbumid%2F5652904312826051457%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_GB" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>-->
+
 </body>
 </html>
