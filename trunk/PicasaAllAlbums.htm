@@ -10,8 +10,8 @@ ul{list-style-type:none;}
 <div id="picasa"></div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 <script style="text/javascript">
-var picasaUrl = 'https://picasaweb.google.com/data/feed/base/user/dklongley?alt=json&kind=album&hl=en_GB&fields=entry(title,media:group(media:content(@url)))&callback=?';
-
+var picasaUrl = 'https://picasaweb.google.com/data/feed/base/user/rml@dindi.net?alt=json&kind=album&hl=en_GB&fields=entry(title,link[@rel="http%3A%2F%2Fschemas.google.com%2Fg%2F2005%23feed"](@href),media:group(media:content(@url),media:thumbnail(@url)))&callback=?';
+//var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/113148315836633117084?alt=json&kind=album&hl=en_GB&fields=entry(title,link[@rel='http%3A%2F%2Fschemas.google.com%2Fg%2F2005%23feed'](@href),media:group(media:thumbnail(@url),media:group(media:content(@url)))'
 var arrAlbums = new Array();
 var html = '';
 
@@ -20,16 +20,19 @@ $.getJSON(picasaUrl, function(json) {
     $.each(json.feed.entry, function(i, albums) {
 
     var albumtitle = albums.title.$t;        
-    var albumurl = albums.media$group.media$content[0].url;
+    var albumurl = '';//albums.media$group.media$content[0].url;
+    var thumburl = albums.media$group.media$thumbnail[0].url;
+    var albumfeedurl = albums.link[0].href
+    html +=  '<a href="'+albumfeedurl+'"><img width="110" src="' + thumburl + '"/></a><br/>';
 
     arrAlbums[albumtitle] = albumurl;
 //alert('The URL is '+albums.media$group.media$content[0].url);
     });
     
     //for (var i in arrAlbums) {
-	html +=  '<img width="110" src="' + arrAlbums['1024'] + '"/><br/>';
-             html +=  '<img width="110" src="' + arrAlbums['1025'] + '"/><br/>';
-             html +=  '<img width="110" src="' + arrAlbums['866'] + '"/><br/>';
+	//html +=  '<a href="'++'"><img width="110" src="' + arrAlbums[i] + '"/></a><br/>';
+             //html +=  '<img width="110" src="' + arrAlbums['1025'] + '"/><br/>';
+             //html +=  '<img width="110" src="' + arrAlbums['866'] + '"/><br/>';
     //}
 
 //alert(arrAlbums['1024']);
@@ -37,6 +40,7 @@ $.getJSON(picasaUrl, function(json) {
 
 });
 </script>
+
 <!--<embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="400" height="267" flashvars="host=picasaweb.google.com&hl=en_GB&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fdklongley%2Falbumid%2F5652904312826051457%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_GB" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>-->
 </body>
 </html>
