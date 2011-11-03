@@ -7,6 +7,35 @@
 // columns, 
 // imgwidth, 
 // summarylength
+var oneH = ~~((totwidth/2)-((totwidth/100)*6));
+var oneHsq = oneH+'-c'
+var oneV = ~~((totwidth)-((totwidth/100)*6));//'540';
+var oneVsq = oneV+'-c';
+var twoV = oneH;
+//alert(twoVert);
+var twoVsq = twoV+'-c';
+var twoH = oneH/2;
+var twoHsq = twoH+'-c';
+var twofiveV = ~~(((totwidth/5)*2)-((totwidth/100)*5.5));
+var twofiveVsq = twofiveV+'-c';
+var twofiveH = ~~(twofiveV/2);
+var twofiveHsq = twofiveH+'-c';
+var threefiveV = ~~(((totwidth/5)*3)-((totwidth/100)*7));
+var threefiveVsq = threefiveV+'-c';
+var threefiveH = ~~(threefiveV/2);
+var threefiveHsq = threefiveH+'-c';
+var threeV = ~~((totwidth/3)-((totwidth/100)*5));
+var threeVsq = threeV+'-c';
+var threeH = ~~(threeV/2);
+var threeHsq = threeH+'-c';
+var fourV = ~~((totwidth/4)-((totwidth/100)*6));
+var fourVsq = fourV+'-c';
+var fourH = ~~(fourV/2);
+var fourHsq = fourH+'-c';
+var fiveV = ~~((totwidth/5)-((totwidth/100)*6));
+var fiveVsq = fiveV+'-c';
+var sixV = ~~((totwidth/6)-((totwidth/100)*6));
+var sixVsq = sixV+'-c';
 -->
 
 <html>
@@ -28,6 +57,8 @@ var bloggerUrl = bloghome +'/feeds/posts/summary?alt=json&callback=?&error=?';
 	     $('#dkl-blogurl').css('display','none')  
 	     $('#dkl-layout').css('display','block')   
 	});
+	
+//one,two,three,four,five,six,twofive,threefive 
 }
 //]]>
 </script>
@@ -42,12 +73,13 @@ var bloggerUrl = bloghome +'/feeds/posts/summary?alt=json&callback=?&error=?';
 <form id="dkl-blogurl">
 URL of Blog 
 <input type="text" id="bloghome" name="bloghome" size="40" value="http://" /><br/>
+<input type="submit" id="getbloglist" name="getbloglist" value="Next.." />
 </form>
 <form id="dkl-layout">
 <h2 id="blogurl"></h2>
 Choose a Category/Tag name - leave blank for all posts 
 <select id="category" name="category">
-	<option value="all"></option>
+	<option value="allposts"></option>
 </select><br/>
 Give name of target container (the id of the div) 
 <input type="text" id="targetdiv" value=""/><br/>
@@ -56,17 +88,24 @@ How many posts should be retrieved (Leave blank for all)
 <input type="text" id="TotalRecords" value="All" size="2" /><br/>
 Choose start point (If you want to ignore first 2 posts enter 3) 
 <input type="text" id="FirstRecord" value=""  size="2" /><br/>
-How many columns will result be laid out in 
-<input type="text" id="Columns" size="2" value="1" /><br/>
-Should the post be laid out horizontally(image with text to right) or vertically(image with text below)? 
-<select id="columnOrientation">
-	<option value="vertical">vertical</option>
-	<option value="horizontal">horizontal</option>
-</select><br/>
+<br />Layout:<br /><br />
+<img src="http://lh5.googleusercontent.com/-JTkALha1OjE/Tq5s4c0hzeI/AAAAAAAABZ0/JtQ4Cg361RU/s206/1grid.jpg" alt="" /><input type="radio" name="grid" value='"class":"grid1_1","columns":1,"imgwidth":"one","closeout":1' /><br />
+<img src="http://lh5.googleusercontent.com/-L-6INEAC5Dw/Tq5tdFIOP9I/AAAAAAAABZ8/iX6qBDLLUyQ/s208/2grid.jpg" alt="" /><input type="radio" name="grid" value='"class":"grid2_1","columns":2,"imgwidth":"two","closeout":1' /><br />
+<img src="http://lh5.googleusercontent.com/-me3a1zfnKgA/Tq6HeDNehNI/AAAAAAAABcE/CnaDt97mkKg/s207/3grid.jpg" alt="" /><input type="radio" name="grid" value='"class":"grid3_1","columns":3,"imgwidth":"three","closeout":1' /><br />
+<img src="http://lh4.googleusercontent.com/-SDWhxlaWNKg/Tq6LFv7fxTI/AAAAAAAABck/x2N7a6Ll-hY/s207/1-2grid.jpg" alt="" /><input type="radio" name="grid" value='"class":"grid3_2","columns":1,"imgwidth":"twothree","closeout":0' /><br />
+<img src="http://lh5.googleusercontent.com/-TmcVs0VUkms/Tq6I5NRSOaI/AAAAAAAABcU/3mFT3vaWleg/s207/1-2grid.jpg" alt="" /><input type="radio" name="grid" value='"class":"grid3_1","columns":1,"imgwidth":"onethree","closeout":0' /><br />
+<img src="http://lh3.googleusercontent.com/-Oq2nQnPLvZw/Tq5vQnAaDeI/AAAAAAAABaM/tZG3X7z0e3Q/s207/4grid.jpg" alt="" /><input type="radio" name="grid" value='"class":"grid4_1","columns":4,"imgwidth":"four","closeout":1' /><br />
+<img src="http://lh4.googleusercontent.com/-Hv22dYmMBj4/Tq54d53SmZI/AAAAAAAABb0/P9-6yAbVbEI/s206/5grid.jpg" alt="" /><input type="radio" name="grid" value='"class":"grid5_1","columns":5,"imgwidth":"five","closeout":1' /><br />
+<img src="http://lh3.googleusercontent.com/-sVXCWtWXGGA/Tq55i9fx_DI/AAAAAAAABb8/o7zIo5VwEOc/s207/6grid.jpg" alt="" /><input type="radio" name="grid" value='"class":"grid6_1","columns":6,"imgwidth":"six","closeout":1' /><br />
+
+Vertically <input type="radio" name="columnOrientation" value='V' checked="checked"/> (image with text below)<br />
+Horizontally <input type="radio" name="columnOrientation" value='H' /> (image with text to right)<br /><br />
+
 Check if you wish to make the image square. 
-<input type="checkbox" id="square" value="square" /><br/>
+<input type="checkbox" id="square" value="sq" /><br/>
 Leave blank for automatic image width calculation. 
-<input type="text" id="ImageWidth" value=""  size="2" /><br/>
+<input type="text" id="Imagewidth" value=""  size="2" /><br/>
+How much text will be displayed? <input type="text" id="textlength" value="150"  size="2" /><br/>
 <input type="submit" name="submit" value="Get code to copy and paste" />
 </form>
 <div id="copyme">
@@ -74,19 +113,46 @@ Copy and paste the code into the desired area of your blogger layout.<br/>
 <textarea id="copymetext" rows="4" cols="75"></textarea>
 </div>
 <script>
-    $('#bloghome').change(function() { listCategories($('#bloghome').val())} );
+    $('#getbloglist').click(function() { listCategories($('#bloghome').val());return false;} );
     
     $('#dkl-layout').submit(function() {
-  		//alert($('#category option:selected').val());
-  		//alert($('#targetdiv').val());
-  		var copytext = "drawpostmenugrid( '" + $('#targetdiv').val() + "', '" + $('#category option:selected').val() + "', " + $('#Columns').val() + ", " + "'120'" + ", " + "100" + ")" ;
-  	     //alert(copytext);
+  		var somejson = '{'+ $('input[name=grid]:checked').val()+'}';
+  		//alert('#square '+$('#square:checked').val())
+  		var obj = $.parseJSON(somejson);
+  		var issq = ''
+  		if($('#square:checked').val() != undefined) { issq=$('#square:checked').val()}
+  		var imgsize = $('#Imagewidth').val()
+  		//alert('imgsize = '+imgsize);
+  		if(imgsize != '')
+  		{
+	  		if(imgsize != 0 )
+	  		{  		
+		  		if (issq == 'sq')
+			  		{imgsize = "'"+imgsize +"-c'" ;} 
+		  		else 
+			  		{imgsize = "'"+imgsize +"'" ;}
+		  	}
+	  	}
+  		else
+  		{
+  		imgsize = obj.imgwidth;
+  		imgsize = imgsize +$('input[name=columnOrientation]:checked').val() +issq ;
+  		}
+  		var copytext = "<script type=\"text/javascript\">drawpostmenugrid( '" 
+  														+ $('#targetdiv').val() + "', '" 
+  														+ $('[name = category]').val() + "', " 
+  														+ obj.columns + ", "
+  														+ "'"+ obj.class + "', "
+  														+ imgsize + ", " 
+  														+ $('#textlength').val() + ", " 
+  														+ obj.closeout + ")<\/script><div id=\""+$('#targetdiv').val()+"\"><\/div>"
   	     $('#copymetext').val(copytext);
 	     $('#copyme').css('display','block')
-	     //alert('pokey');
-	     //.preventDefault();
   		return false;
 });
 </script>
+
+
+
 </body>
 </html>
