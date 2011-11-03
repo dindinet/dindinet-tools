@@ -23,20 +23,15 @@ ul{list-style-type:none;}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 <script style="text/javascript">
 
-//var albumname = window.location.search.substring(1);
-
 var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/113148315836633117084/albumid/5670783886688471073?alt=json&hl=en_GB&fields=title,subtitle,entry(title,media:group(media:description),media:group(media:content),media:group(media:thumbnail[@width=72](@url)))&callback=?';
 
 $.getJSON(picasaUrl, function(json) {
-
    $('h1').html(json.feed.title.$t);
    var imgdescription = '';
 	var thumb = ''; 
 	var pictures = '';  
-
     var html = '';
-    //html += "<ul>";
-    
+ 
     $.each(json.feed.entry, function(i, pics) {
 			thumb = pics.media$group.media$thumbnail[0].url;        
 			pictures = pics.media$group.media$content[0].url;
@@ -45,28 +40,13 @@ $.getJSON(picasaUrl, function(json) {
 			if(i == 0)
 			{
 				$('#large').html('<img src="' + (pictures)+ '" /><br/>'+imgdescription);
-				//title = pics.title.$t
-			};
-			
-	      //html += '<div class="oneitem left">';
+			};		
 		      html += '<a newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" href="#"><div class="itemimage"><img src="' + (thumb)+ '" /></div></a>';
-		      //html += '<div class="itemdescription">'+(imgdescription)+'</div>';
-		      
-			//html += '</div>';
-			//html += '<div class="clear"></div>';
-			
     });
-    //html += "</ul>";
     $('#small').html(html);
-
 });
-
-
 $(document).ready(function(){
-
-
 $('#small a').live("hover", function(){
-    
         var newimage = $(this).attr('newimage');
         var newdescription = $(this).attr('newdescription');
         $('#large').html('<img src="' + (newimage)+ '" /><br/>'+newdescription);
