@@ -1,0 +1,48 @@
+<html>
+<head>
+<style type="text/css">
+img{padding:10px;border:2px solid gray;margin-bottom:20px;}
+ul{list-style-type:none;}
+</style>
+</head>
+<body>
+<div>N O B B Y</div>
+<div id="picasa"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script style="text/javascript">
+// picasa url
+//var picasaUrl = 'https://picasaweb.google.com/data/feed/base/user/dklongley/album/1024?alt=json&hl=en_GB&kind=photo&fields=subtitle,entry(title,media:group(media:content),media:group(media:thumbnail))&callback=?';
+// A more complex query
+ //var albumname = '1024'
+var albumname = window.location.search.substring(1);
+//alert(albumname);
+//var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/dklongley/album/'+albumname+'?alt=json&kind=photo&hl=en_US&fields=title,subtitle,entry(title,media:group(media:content),media:group(media:thumbnail[@height=54](@url)))&callback=?';
+var picasaUrl = 'http://picasaweb.google.com/data/entry/base/user/113148315836633117084/albumid/5670772212919910881?alt=json&hl=en_GB';
+
+$.getJSON(picasaUrl, function(json) {
+    var description = json.feed.subtitle.$t;
+    var title = '';
+   description = description.replace('[link]', '<a href="').replace('[/link]', '">More Info</a>');
+    var html = '<div id="description">'+ (description) + '</div>';
+    html += "<ul>";
+    
+    $.each(json.feed.entry, function(i, pics) {
+
+      var thumb = pics.media$group.media$thumbnail[0].url;        
+var pictures = pics.media$group.media$content[0].url;
+if(i == 0){
+title = pics.title.$t
+};
+        //html += '<li><img src="' + (thumb) + '" /></li>';
+//
+        html += '<li>'+(title)+'<img src="' + (pictures)+ '" /></li>';
+
+    });
+    html += "</ul>";
+    $('#picasa').html(html);
+
+});
+</script>
+<!--<embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="400" height="267" flashvars="host=picasaweb.google.com&hl=en_GB&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fdklongley%2Falbumid%2F5652904312826051457%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_GB" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>-->
+</body>
+</html>

@@ -1,0 +1,29 @@
+/* Grid >> 2 Columns --*/
+.grid2_1 {width:48.0%;}
+.grid2_2 {width:98.0%;}
+
+/* Grid >> 3 Columns --*/
+.grid3_1 {width:31.333%;}
+.grid3_2 {width:64.667%;}
+.grid3_3 {width:98.0%;}
+
+/* Grid >> 4 Columns --*/
+.grid4_1{width:23.0%;}
+.grid4_2{width:48.0%;}
+.grid4_3{width:73.0%;}
+.grid4_4{width:98.0%;}
+
+/* Grid >> 5 Columns --*/
+.grid5_1 {width:18.0%;}
+.grid5_2 {width:38.0%;}
+.grid5_3 {width:58.0%;}
+.grid5_4 {width:78.0%;}
+.grid5_5 {width:98.0%;}
+
+/* Grid >> 6 Columns --*/
+.grid6_1{width:14.667%;}
+.grid6_2{width:31.333%;}
+.grid6_3{width:48.0%;}
+.grid6_4{width:64.667%;}
+.grid6_5{width:81.333%;}
+.grid6_6{width:98.0%;}

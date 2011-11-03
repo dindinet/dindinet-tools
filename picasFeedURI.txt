@@ -1,0 +1,22 @@
+https://picasaweb.google.com/data/feed/base/user/dklongley/albumid/5662154893310488273?alt=json&hl=en_GB&authkey=Gv1sRgCOvMxtmd4d--zQE
+
+
+&fields=title,subtitle,entry(title,media:group(media:content),media:group(media:thumbnail[@height=54](@url)))
+
+&fields=title,subtitle,entry(title,media:group(media:content),media:group(media:thumbnail[@width=72](@url)))
+
+
+
+// This is the URL required to get a list of Albums for the User [rml user = 113148315836633117084]
+http://picasaweb.google.com/data/feed/base/user/dklongley?alt=json&kind=album&hl=en_GB
+&fields=entry(title,link[@rel='http%3A%2F%2Fschemas.google.com%2Fg%2F2005%23feed'](@href),media:group(media:content(@url)))&callback=?';
+
+// This is a n example of a URL of an Album (including Auth Key)
+
+https://picasaweb.google.com/data/feed/base/user/dklongley/albumid/5662154893310488273?alt=json&hl=en_GB&authkey=Gv1sRgCOvMxtmd4d--zQE
+
+&fields=title,subtitle,entry(title,media:group(media:content),media:group(media:thumbnail[@width=72](@url)))
+
+
+&fields=entry(title,link[@rel='http%3A%2F%2Fschemas.google.com%2Fg%2F2005%23feed'](@href),media:group(media:content(@url)))
+
