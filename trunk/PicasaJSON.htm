@@ -82,7 +82,7 @@ $.getJSON(albumurl, function(json) {
 			    var thumburl = albums.media$group.media$thumbnail[0].url.replace(/\/s160-c\//, '/s45-c/'); 
 			    var albumfeedurl = albums.link[0].href
 			    if (i==0){ firstalbumfeedurl = albumfeedurl}
-			    html +=  '<a albumjson="'+albumfeedurl+'" href="#"><img src="' + thumburl + '"/></a>';
+			    html +=  '<a albumjson="'+albumfeedurl+'" href="#"><img title="'+albumtitle+'" src="' + thumburl + '"/></a>';
 		    });
 		    $('#albums').html(html);
 		    displayalbum(firstalbumfeedurl);
