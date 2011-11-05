@@ -39,7 +39,7 @@ $('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>')
 $('#albums a').live("click", function(){
 var newalbumjson = $(this).attr('albumjson');
 console.log('before function call '+newalbumjson);
-x=bahphooey(newalbumjson);
+x=displayalbum(newalbumjson);
 })
   function bahphooey(newalbumjson){
   console.log('bahphooey says '+newalbumjson);
@@ -48,14 +48,14 @@ x=bahphooey(newalbumjson);
 function displayalbum(albumurl){
 var columns = 7;
 var count = 0;
-jQuery.getJSON(albumurl, function(json) {
-console.log('displayalbum says: '+json.feed.title.$t);
-jQuery('h1').html(json.feed.title.$t);
+jQuery.getJSON(albumurl, function(albumjson) {
+console.log('displayalbum says: '+albumjson.feed.title.$t);
+jQuery('h1').html(albumjson.feed.title.$t);
 var imgdescription = '';
 var thumb = '';
 var pictures = '';
 var html = '';
-jQuery.each(json.feed.entry, function(i, pics) {
+jQuery.each(albumjson.feed.entry, function(i, pics) {
 thumb = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s45-c/');
 pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '\/');
 imgdescription = pics.media$group.media$description.$t;
