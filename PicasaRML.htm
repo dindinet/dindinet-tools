@@ -43,7 +43,6 @@ x=displayalbum(newalbumjson);
 })
 
 function displayalbum(albumurl){
-
 var columns = 7;
 var count = 0;
 jQuery.getJSON(albumurl, function(json) {
@@ -58,7 +57,8 @@ thumb = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s45-c/');
 pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '\/');
 imgdescription = pics.media$group.media$description.$t;
 if(i == 0){
-jQuery('#large').html('<img src="' + (pictures)+ '" /><p>'+imgdescription+'</p>');};
+jQuery('#large').html('<img src="' + (pictures)+ '" /><p>'+imgdescription+'</p>');
+}
 html += '<a newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" href="#"><div class="itemimage"><img src="' + (thumb)+ '" /></div></a>';
 count = count + 1;
 if (count % columns === 0){html += "<div style=\"clear:both;\"></div>";}
