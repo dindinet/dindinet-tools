@@ -38,15 +38,16 @@ $('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>')
 ;})
 $('#albums a').live("click", function(){
 var newalbumjson = $(this).attr('albumjson');
-  //console.log(newalbumjson);
-displayalbum(newalbumjson);
+//console.log(newalbumjson);
+x=displayalbum(newalbumjson);
 })
+
 function displayalbum(albumurl){
 
 var columns = 7;
 var count = 0;
 $.getJSON(albumurl, function(json) {
-  console.log('displayalbum says: '+json.feed.title.$t);
+console.log('displayalbum says: '+json.feed.title.$t);
 $('h1').html(json.feed.title.$t);
 var imgdescription = '';
 var thumb = '';
@@ -79,7 +80,7 @@ if (i==0){ firstalbumfeedurl = albumfeedurl}
 html +=  '<a albumjson="'+albumfeedurl+'" href="#"><img title="'+albumtitle+'" src="' + thumburl + '"/></a>';
 });
 $('#albums').html(html);
-displayalbum(firstalbumfeedurl);
+x = displayalbum(firstalbumfeedurl);
 });
 })
 </script>
