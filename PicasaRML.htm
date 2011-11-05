@@ -54,7 +54,7 @@ jQuery('h1').html(albumjson.feed.title.$t);
 var imgdescription = '';
 var thumb = '';
 var pictures = '';
-var html = '';
+var albumhtml = '';
 jQuery.each(albumjson.feed.entry, function(i, pics) {
 thumb = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s45-c/');
 pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '\/');
@@ -62,11 +62,11 @@ imgdescription = pics.media$group.media$description.$t;
 if(i == 0){
 jQuery('#large').html('<img src="' + (pictures)+ '" /><p>'+imgdescription+'</p>');
 }
-html += '<a newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" href="#"><div class="itemimage"><img src="' + (thumb)+ '" /></div></a>';
+albumhtml += '<a newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" href="#"><div class="itemimage"><img src="' + (thumb)+ '" /></div></a>';
 count = count + 1;
-if (count % columns === 0){html += "<div style=\"clear:both;\"></div>";}
+if (count % columns === 0){albumhtml += "<div style=\"clear:both;\"></div>";}
 });
-jQuery('#small').html(html);
+jQuery('#small').html(albumhtml );
 });
 }
 
