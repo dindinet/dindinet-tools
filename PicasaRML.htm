@@ -46,6 +46,7 @@ x=displayalbum(newalbumjson);
 
   }
 function displayalbum(albumurl){
+console.log('displayalbum says: '+albumurl);
 var columns = 7;
 var count = 0;
 jQuery.getJSON(albumurl, function(albumjson) {
