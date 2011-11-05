@@ -46,24 +46,24 @@ function displayalbum(albumurl){
 
 var columns = 7;
 var count = 0;
-$.getJSON(albumurl, function(json) {
+jQuery.getJSON(albumurl, function(json) {
 console.log('displayalbum says: '+json.feed.title.$t);
-$('h1').html(json.feed.title.$t);
+jQuery('h1').html(json.feed.title.$t);
 var imgdescription = '';
 var thumb = '';
 var pictures = '';
 var html = '';
-$.each(json.feed.entry, function(i, pics) {
+jQuery.each(json.feed.entry, function(i, pics) {
 thumb = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s45-c/');
 pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '\/');
 imgdescription = pics.media$group.media$description.$t;
 if(i == 0){
-$('#large').html('<img src="' + (pictures)+ '" /><p>'+imgdescription+'</p>');};
+jQuery('#large').html('<img src="' + (pictures)+ '" /><p>'+imgdescription+'</p>');};
 html += '<a newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" href="#"><div class="itemimage"><img src="' + (thumb)+ '" /></div></a>';
 count = count + 1;
 if (count % columns === 0){html += "<div style=\"clear:both;\"></div>";}
 });
-$('#small').html(html);
+jQuery('#small').html(html);
 });
 }
 
