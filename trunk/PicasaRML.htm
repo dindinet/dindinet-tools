@@ -38,10 +38,11 @@ $('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>')
 ;})
 $('#albums a').live("click", function(){
 var newalbumjson = $(this).attr('albumjson');
-console.log(newalbumjson);
+  //console.log(newalbumjson);
 displayalbum(newalbumjson);
 })
 function displayalbum(albumurl){
+console.log(albumurl);
 var columns = 7;
 var count = 0;
 $.getJSON(albumurl, function(json) {
