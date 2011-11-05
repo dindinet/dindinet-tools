@@ -49,7 +49,7 @@ function displayalbum(albumurl){
 console.log('displayalbum says: '+albumurl);
 var columns = 7;
 var count = 0;
-jQuery.getJSON(albumurl, function(albumjson) {
+jQuery.getJSON(albumurl+'&callback=?', function(albumjson) {
 console.log('displayalbum says: '+albumjson.feed.title.$t);
 jQuery('h1').html(albumjson.feed.title.$t);
 var imgdescription = '';
