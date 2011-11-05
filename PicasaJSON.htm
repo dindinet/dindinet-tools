@@ -32,7 +32,7 @@
 function displayalbum(albumurl){
 var columns = 7;
 var count = 0;
-$.getJSON(albumurl, function(json) {
+$.getJSON(albumurl+'&callback=?', function(json) {
    $('h1').html(json.feed.title.$t);
    var imgdescription = '';
 	var thumb = ''; 
