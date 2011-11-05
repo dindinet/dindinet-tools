@@ -29,6 +29,17 @@ ul{list-style-type:none;}
 <script style="text/javascript">
 //5670783886688471073  [@width=72] &max-results=24&start-index=21
 //var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/113148315836633117084/albumid/5671085334505253601?alt=json&hl=en_GB&fields=title,subtitle,entry(title,media:group(media:description),media:group(media:content),media:group(media:thumbnail(@url)))&callback=?';
+$(document).ready(function(){
+$('#small a').live("hover", function(){
+var newimage = $(this).attr('newimage');
+var newdescription = $(this).attr('newdescription');
+$('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>')
+;})
+$('#albums a').live("click", function(){
+var newalbumjson = $(this).attr('albumjson');
+console.log(newalbumjson);
+displayalbum(newalbumjson);
+})
 function displayalbum(albumurl){
 var columns = 7;
 var count = 0;
@@ -51,17 +62,7 @@ if (count % columns === 0){html += "<div style=\"clear:both;\"></div>";}
 $('#small').html(html);
 });
 }
-$(document).ready(function(){
-$('#small a').live("hover", function(){
-var newimage = $(this).attr('newimage');
-var newdescription = $(this).attr('newdescription');
-$('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>')
-;})
-$('#albums a').live("click", function(){
-var newalbumjson = $(this).attr('albumjson');
-console.log(newalbumjson);
-displayalbum(newalbumjson);
-})
+
 var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/rml@dindi.net?alt=json&kind=album&hl=en_GB&fields=entry(title,link[@rel="http%3A%2F%2Fschemas.google.com%2Fg%2F2005%23feed"](@href),media:group(media:content(@url),media:thumbnail(@url)))&callback=?';
 var html = '';
 var firstalbumfeedurl = '';
