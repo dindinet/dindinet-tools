@@ -42,7 +42,7 @@ var newalbumjson = $(this).attr('albumjson');
 displayalbum(newalbumjson);
 })
 function displayalbum(albumurl){
-console.log(albumurl);
+  console.log('displayalbum says: '+albumurl);
 var columns = 7;
 var count = 0;
 $.getJSON(albumurl, function(json) {
