@@ -38,7 +38,7 @@ $('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>')
 ;})
 $('#albums a').live("click", function(){
 var newalbumjson = $(this).attr('albumjson');
-//console.log(newalbumjson);
+console.log('before function call '+newalbumjson);
 x=displayalbum(newalbumjson);
 })
 
