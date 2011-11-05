@@ -39,9 +39,12 @@ $('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>')
 $('#albums a').live("click", function(){
 var newalbumjson = $(this).attr('albumjson');
 console.log('before function call '+newalbumjson);
-x=displayalbum(newalbumjson);
+x=bahphooey(newalbumjson);
 })
+  function bahphooey(newalbumjson){
+  console.log('bahphooey says '+newalbumjson);
 
+  }
 function displayalbum(albumurl){
 var columns = 7;
 var count = 0;
