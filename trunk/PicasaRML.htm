@@ -10,7 +10,7 @@ h1{font-family: helvetica,sans-serif;font-size:26px;color:#d5ab63;}
 #large{float:right;display:inline;width:820px;xborder:1px solid black;padding:4px;}               
 #large p{margin:10px 25px;font-family: helvetica,sans-serif;font-size:16px;color:#d5ab63;font-weight:bold;}
 #large img{padding:12px;}
-#small{float:left;display:inline;width:480px;xborder:1px solid black;}
+#small{float:left;display:inline;width:435px;}
 .itemimage {float:left;margin:5px;}
 .itemdescription{font-family: helvetica,sans-serif;font-size:13px;}
 img{padding:4px;border:1px solid gray;background:white;}
@@ -49,7 +49,7 @@ x=displayalbum(newalbumjson);
   }
 function displayalbum(albumurl){
 //console.log('displayalbum says: '+albumurl);
-var columns = 7;
+var columns = 6;
 var count = 0;
 jQuery.getJSON(albumurl+'&callback=?', function(albumjson) {
 //console.log('displayalbum says: '+albumjson.feed.title.$t);
