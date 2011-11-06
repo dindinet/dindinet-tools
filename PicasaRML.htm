@@ -40,19 +40,19 @@ $('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>')
 ;})
 $('#albums a').live("click", function(){
 var newalbumjson = $(this).attr('albumjson');
-console.log('before function call '+newalbumjson);
+//console.log('before function call '+newalbumjson);
 x=displayalbum(newalbumjson);
 })
   function bahphooey(newalbumjson){
-  console.log('bahphooey says '+newalbumjson);
+  //console.log('bahphooey says '+newalbumjson);
 
   }
 function displayalbum(albumurl){
-console.log('displayalbum says: '+albumurl);
+//console.log('displayalbum says: '+albumurl);
 var columns = 7;
 var count = 0;
 jQuery.getJSON(albumurl+'&callback=?', function(albumjson) {
-console.log('displayalbum says: '+albumjson.feed.title.$t);
+//console.log('displayalbum says: '+albumjson.feed.title.$t);
 jQuery('h1').html(albumjson.feed.title.$t);
 var imgdescription = '';
 var thumb = '';
