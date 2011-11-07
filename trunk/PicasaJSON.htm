@@ -6,31 +6,33 @@
 	html{max-width:1120px;}
 		body{background:black;}
 		h1{display:inline;font-family: helvetica,sans-serif;font-size:26px;color:#d5ab63;}
-		#top{padding-top:10px;top:0px;position:fixed;height:60px;background:black;width:100%;z-index:999;}
+		#top{padding-top:10px;top:0px;position:fixed;height:90px;background:black;width:100%;z-index:999;}
 		#topleft{float:left;width:50%;}
 		#topright{float:right;width:50%;}
-		#picasa{position:absolute;top: 70px;}
+		#picasa{position:absolute;top: 100px;}
 		.oneitem a{text-decoration:none;color:black;}
-		#large{xfloat:right;xdisplay:inline;position:fixed;top:70px;left:300px;width:820px;height:610px;padding:4px;}
+		#large{position:fixed;top:100px;left:300px;width:820px;height:610px;padding:4px;}
 		#large p{margin:10px 25px;font-family: helvetica,sans-serif;font-size:16px;color:#d5ab63;font-weight:bold;}
 		#large img{padding:12px;}
 		#left{width:280px;}
 		#small{float:left;display:inline;xborder:1px solid black;}
 		.itemimage {float:left;margin:5px;}
 		.itemdescription{font-family: helvetica,sans-serif;font-size:13px;}
+		#albums img{border:1px solid white !important;background:black !important;}
 		img{padding:4px;border:1px solid gray;background:white;}
 		ul{list-style-type:none;}
 		.left{float:left;}
 		.right{float:right;}
 		.clear{clear:both;}
+		.highlight{filter: alpha(opacity=30);-moz-opacity: 0.3;-khtml-opacity: 0.3;opacity: 0.3;}
 	</style>
 </head>
 <body>
 <div id="top">
-	<div id="topleft"><h1></h1></div>
-	<div id="topright"><div id="albums"></div></div>
-</div>
 
+	<div id="albums"></div>
+	<h1></h1>
+</div>
 <div id="large"></div>
 
 <div id="picasa">
@@ -64,7 +66,14 @@ $.getJSON(albumurl+'&callback=?', function(json) {
 			{
 				$('#large').html('<img src="' + (pictures)+ '" /><p>'+imgdescription+'</p>');
 			};		
-		      html += '<a newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" href="#"><div class="itemimage"><img src="' + (thumb)+ '" /></div></a>';
+		   if(i == 0)
+		   {
+		   html += '<div class="itemimage"><img  class="highlight" newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" class="thumb" src="' + (thumb)+ '" /></div>';
+		   }
+		   else
+		   { 
+		      html += '<div class="itemimage"><img  newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" class="thumb" src="' + (thumb)+ '" /></div>';
+		   }
  		  count = count + 1;
 	     if (count % columns === 0){
 	     html += "<div style=\"clear:both;\"></div>";}	    
@@ -73,16 +82,21 @@ $.getJSON(albumurl+'&callback=?', function(json) {
 });
 }
 	$(document).ready(function(){
-		$('#small a').live("hover", function(){
-	        var newimage = $(this).attr('newimage');
-	        var newdescription = $(this).attr('newdescription');
-	        $('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>');
-	    })
-	    $('#albums a').live("click", function(){
+		$('#albums img').live("click", function(){
 	        var newalbumjson = $(this).attr('albumjson');
 	        //console.log(newalbumjson);
+	        $('#albums img').removeClass('highlight');
+	        $(this).addClass('highlight');
 	        displayalbum(newalbumjson);
 	    })
+		$('.itemimage img').live("click", function(){
+	        var newimage = $(this).attr('newimage');
+	        var newdescription = $(this).attr('newdescription');
+	        $('.itemimage img').removeClass('highlight');
+	        $(this).addClass('highlight');
+	        $('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>');
+	    })
+	    
 		var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/rml@dindi.net?alt=json&kind=album&hl=en_GB&fields=entry(title,link[@rel="http%3A%2F%2Fschemas.google.com%2Fg%2F2005%23feed"](@href),media:group(media:content(@url),media:thumbnail(@url),media:description[text()=%22odge%22]))&callback=?';
 		var html = '';
 		var firstalbumfeedurl = '';
@@ -92,8 +106,14 @@ $.getJSON(albumurl+'&callback=?', function(json) {
 			    //console.log(albums.media$group.media$thumbnail[0].url)       
 			    var thumburl = albums.media$group.media$thumbnail[0].url.replace(/\/s160-c\//, '/s45-c/'); 
 			    var albumfeedurl = albums.link[0].href
-			    if (i==0){ firstalbumfeedurl = albumfeedurl}
-			    html +=  '<a albumjson="'+albumfeedurl+'" href="#"><img title="'+albumtitle+'" src="' + thumburl + '"/></a>';
+			    if (i==0){ 
+			    firstalbumfeedurl = albumfeedurl;
+			    html +=  '<img class="highlight" albumjson="'+albumfeedurl+'" title="'+albumtitle+'" src="' + thumburl + '"/>';
+			    }
+			    else
+			    {
+			    html +=  '<img albumjson="'+albumfeedurl+'" title="'+albumtitle+'" src="' + thumburl + '"/>';
+			    }
 		    });
 		    $('#albums').html(html);
 		    displayalbum(firstalbumfeedurl);
