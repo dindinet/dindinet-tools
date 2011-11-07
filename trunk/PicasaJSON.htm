@@ -17,6 +17,7 @@
 		#left{width:280px;}
 		#small{float:left;display:inline;xborder:1px solid black;}
 		.itemimage {float:left;margin:5px;}
+		.itemimage img{max-width:400px;}
 		.itemdescription{font-family: helvetica,sans-serif;font-size:13px;}
 		#albums img{border:1px solid white !important;background:black !important;}
 		img{padding:4px;border:1px solid gray;background:white;}
@@ -59,8 +60,8 @@ $.getJSON(albumurl+'&callback=?', function(json) {
     var html = ''; 
     $.each(json.feed.entry, function(i, pics) {
 			thumb = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s45-c/');        
-			//pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '\/'); 
-			pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s400/');  
+			pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '\/'); 
+			//pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s400/');  
 			imgdescription = pics.media$group.media$description.$t;
 			if(i == 0)
 			{
