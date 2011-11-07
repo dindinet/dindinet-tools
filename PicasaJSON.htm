@@ -3,15 +3,19 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
 	<style type="text/css">
+	html{max-width:1120px;}
 		body{background:black;}
 		h1{display:inline;font-family: helvetica,sans-serif;font-size:26px;color:#d5ab63;}
-		#top{position:fixed;min-width:400px;left:700px;text-align:right;}
-		#picasa{xwidth:1320px}
+		#top{padding-top:10px;top:0px;position:fixed;height:60px;background:black;width:100%;z-index:999;}
+		#topleft{float:left;width:50%;}
+		#topright{float:right;width:50%;}
+		#picasa{position:absolute;top: 70px;}
 		.oneitem a{text-decoration:none;color:black;}
-		#large{xfloat:right;xdisplay:inline;position:fixed;top:100px;left:300px;width:820px;height:610px;padding:4px;}
+		#large{xfloat:right;xdisplay:inline;position:fixed;top:70px;left:300px;width:820px;height:610px;padding:4px;}
 		#large p{margin:10px 25px;font-family: helvetica,sans-serif;font-size:16px;color:#d5ab63;font-weight:bold;}
 		#large img{padding:12px;}
-		#small{float:left;display:inline;width:280px;xborder:1px solid black;}
+		#left{width:280px;}
+		#small{float:left;display:inline;xborder:1px solid black;}
 		.itemimage {float:left;margin:5px;}
 		.itemdescription{font-family: helvetica,sans-serif;font-size:13px;}
 		img{padding:4px;border:1px solid gray;background:white;}
@@ -23,16 +27,17 @@
 </head>
 <body>
 <div id="top">
-<div id="albums"></div>
-<h1></h1>
+	<div id="topleft"><h1></h1></div>
+	<div id="topright"><div id="albums"></div></div>
 </div>
+
 <div id="large"></div>
 
 <div id="picasa">
-<div id="small"></div>
-
-<div class="clear"></div>
-
+	<div id="left">
+	
+	<div id="small"></div>
+	</div>
 </div>
 
 
