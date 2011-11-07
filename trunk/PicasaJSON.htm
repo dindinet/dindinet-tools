@@ -13,7 +13,10 @@
 		.oneitem a{text-decoration:none;color:black;}
 		#large{position:fixed;top:100px;left:300px;width:820px;height:610px;padding:4px;}
 		#large p{margin:10px 25px;font-family: helvetica,sans-serif;font-size:16px;color:#d5ab63;font-weight:bold;}
-		#large img{padding:12px;max-width:400px;}
+		#large img{padding:12px;}
+		@media (max-device-width: 1024px) and (orientation: landscape) {
+			#large img{padding:12px;max-width:400px;}
+		}
 		#left{width:280px;}
 		#small{float:left;display:inline;xborder:1px solid black;}
 		.itemimage {float:left;margin:5px;}
