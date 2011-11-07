@@ -59,8 +59,8 @@ $.getJSON(albumurl+'&callback=?', function(json) {
     var html = ''; 
     $.each(json.feed.entry, function(i, pics) {
 			thumb = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s45-c/');        
-			pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '\/'); 
-			//pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s500/');  
+			//pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '\/'); 
+			pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s300/');  
 			imgdescription = pics.media$group.media$description.$t;
 			if(i == 0)
 			{
