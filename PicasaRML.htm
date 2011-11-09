@@ -2,93 +2,131 @@
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-<style type="text/css">
-body{background:black;}
-h1{font-family: helvetica,sans-serif;font-size:26px;color:#d5ab63;}
-#picasa{width:1240px}
-.oneitem a{text-decoration:none;color:black;}
-#large{float:right;display:inline;width:820px;xborder:1px solid black;padding:4px;}               
-#large p{margin:10px 25px;font-family: helvetica,sans-serif;font-size:16px;color:#d5ab63;font-weight:bold;}
-#large img{padding:12px;}
-#small{float:left;display:inline;width:400px;}
-.itemimage {float:left;margin:5px;}
-.itemdescription{font-family: helvetica,sans-serif;font-size:13px;}
-img{padding:4px;border:1px solid gray;background:white;}
-ul{list-style-type:none;}
-.left{float:left;}
-.right{float:right;}
-.clear{clear:both;}
-</style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script> 
+        <style type="text/css">
+        html{max-width:1120px;}
+                body{background:black;}
+                h1{display:inline;font-family: helvetica,sans-serif;font-size:26px;color:#d5ab63;}
+                #top{padding-top:10px;top:0px;position:fixed;height:90px;background:black;width:100%;z-index:999;}
+                #topleft{float:left;width:50%;}
+                #topright{float:right;width:50%;}
+                #picasa{position:absolute;top: 100px;}
+                .oneitem a{text-decoration:none;color:black;}
+                #large{position:fixed;top:100px;left:300px;height:610px;padding:4px;max-width:640px;}
+                #large p{margin:10px 25px;font-family: helvetica,sans-serif;font-size:16px;color:#d5ab63;font-weight:bold;}
+                #large img{padding:12px;}
+                @media screen and (max-device-width: 480px) {
+                        #large img{padding:6px;max-width:300px;}
+                }
+                @media (max-device-width: 1024px) and (orientation: landscape) {
+                        #large img{padding:8px;max-width:400px;}
+                }
+                #left{width:280px;}
+                #small{float:left;display:inline;xborder:1px solid black;min-height:600px;}
+                .itemimage {float:left;margin:5px;}
+                .itemdescription{font-family: helvetica,sans-serif;font-size:13px;}
+                #albums img{border:1px solid white !important;background:black !important;}
+                img{padding:4px;border:1px solid gray;background:white;}
+                ul{list-style-type:none;}
+                .left{float:left;}
+                .right{float:right;}
+                .clear{clear:both;}
+                .highlight{filter: alpha(opacity=30);-moz-opacity: 0.3;-khtml-opacity: 0.3;opacity: 0.3;}
+                .wait{cursor:wait;}
+        </style>
 </head>
 <body>
-<div id="albums"></div>
-<h1></h1>
-<div id="picasa">
-<div id="small"></div>
-<div id="large"></div>
+<div id="top">
+
+        <div id="albums"></div>
+        <h1></h1>
 </div>
- 
-<script style="text/javascript">
-//5670783886688471073  [@width=72] &max-results=24&start-index=21
-//var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/113148315836633117084/albumid/5671085334505253601?alt=json&hl=en_GB&fields=title,subtitle,entry(title,media:group(media:description),media:group(media:content),media:group(media:thumbnail(@url)))&callback=?';
-$(document).ready(function(){
-$('#small a').live("hover", function(){
-var newimage = $(this).attr('newimage');
-var newdescription = $(this).attr('newdescription');
-$('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>')
-;})
-$('#albums a').live("click", function(){
-var newalbumjson = $(this).attr('albumjson');
-//console.log('before function call '+newalbumjson);
-x=displayalbum(newalbumjson);
-})
-  function bahphooey(newalbumjson){
-  //console.log('bahphooey says '+newalbumjson);
+<div id="large"></div>
 
-  }
+<div id="picasa">
+        <div id="left">
+        
+        <div id="small"></div>
+        </div>
+</div>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script style="text/javascript"> 
 function displayalbum(albumurl){
-//console.log('displayalbum says: '+albumurl);
-var columns = 6;
+var columns = 4;
+$('body').addClass('wait');
 var count = 0;
-jQuery.getJSON(albumurl+'&callback=?', function(albumjson) {
-//console.log('displayalbum says: '+albumjson.feed.title.$t);
-jQuery('h1').html(albumjson.feed.title.$t);
-var imgdescription = '';
-var thumb = '';
-var pictures = '';
-var albumhtml = '';
-jQuery.each(albumjson.feed.entry, function(i, pics) {
-thumb = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s45-c/');
-pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '\/');
-imgdescription = pics.media$group.media$description.$t;
-if(i == 0){
-jQuery('#large').html('<img src="' + (pictures)+ '" /><p>'+imgdescription+'</p>');
+$.getJSON(albumurl+'&callback=?', function(json) {
+   $('h1').html(json.feed.title.$t);
+   var imgdescription = '';
+	var thumb = ''; 
+	var pictures = '';  
+    var html = ''; 
+    $.each(json.feed.entry, function(i, pics) {
+			thumb = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s45-c/');        
+			//pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '\/'); 
+			pictures = pics.media$group.media$thumbnail[0].url.replace(/\/s72\//, '/s960/');  
+			if (pics.media$group.media$description.$t != undefined){imgdescription = pics.media$group.media$description.$t };
+			if(i == 0)
+			{
+				$('#large').html('<img src="' + (pictures)+ '" /><p>'+imgdescription+'</p>');
+			};		
+		   if(i == 0)
+		   {
+		   html += '<div class="itemimage"><img  class="highlight" newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" class="thumb" src="' + (thumb)+ '" /></div>';
+		   }
+		   else
+		   { 
+		      html += '<div class="itemimage"><img  newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" class="thumb" src="' + (thumb)+ '" /></div>';
+		   }
+ 		  count = count + 1;
+	     if (count % columns === 0){html += "<div style=\"clear:both;\"></div>";}	    
+    });
+    $('#small').html(html);
+    $('body').removeClass('wait');
+});
 }
-albumhtml += '<a newimage="'+(pictures)+'" newdescription="'+(imgdescription)+'" href="#"><div class="itemimage"><img src="' + (thumb)+ '" /></div></a>';
-count = count + 1;
-if (count % columns === 0){albumhtml += "<div style=\"clear:both;\"></div>";}
-});
-jQuery('#small').html(albumhtml );
-});
-}
-
-var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/rml@dindi.net?alt=json&kind=album&hl=en_GB&fields=entry(title,link[@rel="http%3A%2F%2Fschemas.google.com%2Fg%2F2005%23feed"](@href),media:group(media:content(@url),media:thumbnail(@url)))&callback=?';
-var html = '';
-var firstalbumfeedurl = '';
-$.getJSON(picasaUrl, function(json) {
-$.each(json.feed.entry, function(i, albums) {
-var albumtitle = albums.title.$t;
-//console.log(albums.media$group.media$thumbnail[0].url)
-var thumburl = albums.media$group.media$thumbnail[0].url.replace(/\/s160-c\//, '/s45-c/');
-var albumfeedurl = albums.link[0].href
-if (i==0){ firstalbumfeedurl = albumfeedurl}
-html +=  '<a albumjson="'+albumfeedurl+'" href="#"><img title="'+albumtitle+'" src="' + thumburl + '"/></a>';
-});
-$('#albums').html(html);
-x = displayalbum(firstalbumfeedurl);
-});
-})
+	$(document).ready(function(){
+		$('#albums img').live("click", function(){
+	        var newalbumjson = $(this).attr('albumjson');
+	        //console.log(newalbumjson);
+	        $('#albums img').removeClass('highlight');
+	        $(this).addClass('highlight');
+	        displayalbum(newalbumjson);
+	    })
+		$('.itemimage img').live("click", function(){
+			$('body').addClass('wait');
+	        var newimage = $(this).attr('newimage');
+	        var newdescription = $(this).attr('newdescription');
+	        $('.itemimage img').removeClass('highlight');
+	        $(this).addClass('highlight');
+	        $('#large').html('<img src="' + (newimage)+ '" /><p>'+newdescription+'</p>');
+	        $('body').removeClass('wait');
+	    })
+	   
+			   
+	   var username = 'rml@dindi.net';
+	   if (window.location.search.substring(1) != ''){username = window.location.search.substring(1)}; 
+		var picasaUrl = 'http://picasaweb.google.com/data/feed/base/user/'+username+'?alt=json&kind=album&hl=en_GB&fields=entry(title,link[@rel="http%3A%2F%2Fschemas.google.com%2Fg%2F2005%23feed"](@href),media:group(media:content(@url),media:thumbnail(@url),media:description[text()=%22odge%22]))&callback=?';
+		var html = '';
+		var firstalbumfeedurl = '';
+		$.getJSON(picasaUrl, function(json) {
+		    $.each(json.feed.entry, function(i, albums) {
+			    var albumtitle = albums.title.$t; 
+			    //console.log(albums.media$group.media$thumbnail[0].url)       
+			    var thumburl = albums.media$group.media$thumbnail[0].url.replace(/\/s160-c\//, '/s30-c/'); 
+			    var albumfeedurl = albums.link[0].href
+			    if (i==0){ 
+			    firstalbumfeedurl = albumfeedurl;
+			    html +=  '<img class="highlight" albumjson="'+albumfeedurl+'" title="'+albumtitle+'" src="' + thumburl + '"/>';
+			    }
+			    else
+			    {
+			    html +=  '<img albumjson="'+albumfeedurl+'" title="'+albumtitle+'" src="' + thumburl + '"/>';
+			    }
+		    });
+		    $('#albums').html(html);
+		    displayalbum(firstalbumfeedurl);
+		});	    
+	})
 </script>
 </body>
 </html> 
