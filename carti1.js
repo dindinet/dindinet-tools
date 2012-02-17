@@ -212,9 +212,9 @@ function Cart(){
 	  optionsString = optionsString + ", " + item[field] ;
 				}
 			}
-         console.log('strOptb4 = '+optionsString);
+         //console.log('strOptb4 = '+optionsString);
 			optionsString = optionsString.substring(2);
-         console.log('strOptafta = '+optionsString);
+         //console.log('strOptafta = '+optionsString);
 			
 			itemsString = itemsString 	+ "&item_name_" 	+ counter + "=" + item.name  +
 									 	  "&item_number_" 	+ counter + "=" + counter +
