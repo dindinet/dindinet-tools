@@ -20,3 +20,5 @@ https://picasaweb.google.com/data/feed/base/user/dklongley/albumid/5662154893310
 
 &fields=entry(title,link[@rel='http%3A%2F%2Fschemas.google.com%2Fg%2F2005%23feed'](@href),media:group(media:content(@url)))
 
+https://picasaweb.google.com/data/feed/base/user/dklongley/albumid/5662154893310488273?alt=json&hl=en_GB&authkey=Gv1sRgCOvMxtmd4d--zQE&fields=entry(media:group(media:content(@url),media:title))
+
